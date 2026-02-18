@@ -1,0 +1,19 @@
+import { NextResponse } from 'next/server';
+
+export async function POST(request: Request) {
+  try {
+    const data = await request.json();
+    
+    // تسجيل الحالة المستلمة من n8n
+    console.log("SEO Status Received:", data.seo_status);
+
+    return NextResponse.json({ 
+      success: true, 
+      received_value: data.seo_status,
+      message: "Transfora System: Connection Established"
+    });
+    
+  } catch (error) {
+    return NextResponse.json({ success: false, error: "Invalid Data" }, { status: 400 });
+  }
+}
