@@ -20,9 +20,7 @@ export const metadata: Metadata = {
     follow: false,
    nocache: true,
            },
-}
-  
-;
+};
 
 export default function RootLayout({
   children,
