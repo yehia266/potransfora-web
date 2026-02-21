@@ -2,40 +2,31 @@ import { NextResponse } from 'next/server';
 
 export async function POST(request: Request) {
   try {
+    // استخراج المفتاح من الـ Headers للتحقق
+    const authKey = request.headers.get('X-Transfora-Key');
+    const SOVEREIGN_KEY = "TF-Nexus-Sovereign-2026-Alpha-99-Safe";
+
+    if (authKey !== SOVEREIGN_KEY) {
+      console.error("🚨 Unauthorized Access Attempt Detected!");
+      return NextResponse.json({ success: false, error: "Access Denied: Invalid Sovereign Key" }, { status: 401 });
+    }
+
     const data = await request.json();
-    
-    // استخراج الكنوز السيادية من الطلب القادم من n8n
     const { seo_title, seo_description, seo_status } = data;
 
-    // طباعة البيانات في Logs السيرفر (Vercel) للرقابة والتحقق
-    console.log("🛡️ Transfora Sovereign Update:");
-    console.log("- Title:", seo_title);
-    console.log("- Description:", seo_description);
-    console.log("- Status:", seo_status);
+    console.log("🛡️ Verified Data Received:", { seo_title, seo_status });
 
     return NextResponse.json({ 
       success: true, 
-      received: {
-        title: seo_title,
-        description: seo_description,
-        status: seo_status
-      },
-      message: "T9-CORE-02: Sovereign SEO Data Injected Successfully",
-      timestamp: new Date().toISOString()
+      message: "T9-CORE-02-Security-Shield: Data Secured & Injected",
+      received: { title: seo_title, status: seo_status }
     }, { status: 200 });
 
   } catch (error) {
-    return NextResponse.json({ 
-      success: false, 
-      error: "Data Injection Failed - Check Payload Structure" 
-    }, { status: 400 });
+    return NextResponse.json({ success: false, error: "Critical Error in Data Stream" }, { status: 400 });
   }
 }
 
 export async function GET() {
-  return NextResponse.json({ 
-    status: "Active", 
-    node: "T9-CORE-02-Webhook & SEO Base",
-    message: "Ready for Sovereign Data Injection."
-  });
+  return NextResponse.json({ status: "Encrypted", node: "T9-CORE-02-Security-Shield" });
 }
