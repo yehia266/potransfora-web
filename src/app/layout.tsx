@@ -13,9 +13,8 @@ subsets: ["latin"],
 });
 
 export const metadata: Metadata = {
-title: "POTransfora | Sovereign System",
-description: "Total Path - Algorithmic Justice & Digital Sovereignty Protocol",
-// وضع التخفي السيادي: منع جوجل من الفهرسة حتى إشعار آخر
+title: "POTransfora",
+description: "Sovereign Management System",
 robots: {
 index: false,
 follow: false,
@@ -30,9 +29,7 @@ children: React.ReactNode;
 }>) {
 return (
 <html lang="en">
-<body
-className={${geistSans.variable} ${geistMono.variable} antialiased bg-white dark:bg-black}
->
+<body className={${geistSans.variable} ${geistMono.variable} antialiased bg-white dark:bg-black}>
 {children}
 </body>
 </html>
