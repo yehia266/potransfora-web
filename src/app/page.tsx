@@ -66,7 +66,7 @@ export default function Home() {
           </p>
           <div className="h-[1px] w-12 bg-zinc-300 dark:bg-zinc-700 md:block hidden"></div>
           <p className="text-[10px] font-black italic text-[#00A3FF]">
-            CORE VERSION 6.0
+           CoreTeam-POTransfora  CORE VERSION 6.0
           </p>
         </div>
       </footer>
