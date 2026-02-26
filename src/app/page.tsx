@@ -17,14 +17,14 @@ export default function Home() {
 
         <div className="flex flex-col items-center gap-8 text-center sm:items-start sm:text-left z-10">
           <h1 className="max-w-md text-5xl font-extrabold leading-[1.1] tracking-tight text-black dark:text-white">
-            POTransfora | Algorithmic Justice & Digital Sovereignty Protocol
+          POTransfora | Algorithmic Justice & Digital Sovereignty Protocol
           </h1>
           
           <div className="relative group max-w-lg">
             <div className="absolute -inset-1 bg-gradient-to-r from-[#00A3FF] to-blue-600 rounded-lg blur opacity-15"></div>
             <div className="relative px-7 py-5 bg-white dark:bg-zinc-900 ring-1 ring-zinc-200 dark:ring-zinc-800 rounded-xl">
               <p className="text-zinc-600 dark:text-zinc-400 leading-relaxed text-lg font-medium">
-                • Leading the future with the Organizational DNA Protocol and Cyber-Human Immunity. Discover the Sovereign Treasury and the Immortal Digital Mentor within POTransfora.
+               • Leading the future with the Organizational DNA Protocol and Cyber-Human Immunity. Discover the Sovereign Treasury and the Immortal Digital Mentor within POTransfora.
               </p>
             </div>
           </div>
@@ -35,7 +35,7 @@ export default function Home() {
             استكشف السيادة
           </a>
           <div className="flex items-center justify-center text-zinc-400 text-[10px] tracking-[0.3em] uppercase italic font-bold">
-             STATUS: ONLINE
+             STATUS: Done
           </div>
         </div>
 
