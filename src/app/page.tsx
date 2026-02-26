@@ -2,45 +2,74 @@ import Image from "next/image";
 
 export default function Home() {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black text-black dark:text-white">
+    <div className="flex min-h-screen flex-col bg-zinc-50 font-sans dark:bg-[#050505] text-black dark:text-white selection:bg-[#00A3FF] selection:text-white">
+      {/* Dynamic SEO Tags from Notion */}
       <title>POTransfora | Algorithmic Justice & Digital Sovereignty Protocol</title>
       <meta name="description" content="• Leading the future with the Organizational DNA Protocol and Cyber-Human Immunity. Discover the Sovereign Treasury and the Immortal Digital Mentor within POTransfora." />
 
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start relative overflow-hidden">
-        
-        <div className="flex items-center gap-3 mb-12 border-l-4 border-[#00A3FF] pl-5">
-          <span className="font-black tracking-tighter text-2xl uppercase">TRANSFORA</span>
-          <span className="text-[#00A3FF] font-medium tracking-[0.2em] text-[10px] uppercase font-bold">
-            X POTRANSFORA X SOVEREIGN MINIMALISM.
-          </span>
+      {/* --- SOVEREIGN HEADER --- */}
+      <header className="fixed top-0 z-50 w-full border-b border-zinc-200/50 bg-white/80 backdrop-blur-md dark:border-zinc-800/50 dark:bg-black/80 px-6 py-4">
+        <div className="mx-auto flex max-w-7xl items-center justify-between">
+          <div className="flex items-center gap-2">
+            <div className="h-6 w-1 bg-[#00A3FF]"></div>
+            <span className="text-lg font-black tracking-tighter uppercase">TRANSFORA</span>
+          </div>
+          <div className="flex items-center gap-4">
+            <span className="flex items-center gap-1.5 text-[10px] font-bold tracking-[0.2em] uppercase text-zinc-400">
+              <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-[#00A3FF]"></span>
+              SYSTEM: Done
+            </span>
+          </div>
         </div>
+      </header>
 
-        <div className="flex flex-col items-center gap-8 text-center sm:items-start sm:text-left z-10">
-          <h1 className="max-w-md text-5xl font-extrabold leading-[1.1] tracking-tight text-black dark:text-white">
-          POTransfora | Algorithmic Justice & Digital Sovereignty Protocol
-          </h1>
+      <main className="flex-1 pt-32">
+        {/* --- HERO SECTION --- */}
+        <section className="relative px-6 pb-20 pt-16 overflow-hidden">
+          <div className="absolute top-0 left-1/2 -z-10 h-[400px] w-[600px] -translate-x-1/2 rounded-full bg-[#00A3FF] opacity-[0.03] blur-[120px]"></div>
           
-          <div className="relative group max-w-lg">
-            <div className="absolute -inset-1 bg-gradient-to-r from-[#00A3FF] to-blue-600 rounded-lg blur opacity-15"></div>
-            <div className="relative px-7 py-5 bg-white dark:bg-zinc-900 ring-1 ring-zinc-200 dark:ring-zinc-800 rounded-xl">
-              <p className="text-zinc-600 dark:text-zinc-400 leading-relaxed text-lg font-medium">
-               • Leading the future with the Organizational DNA Protocol and Cyber-Human Immunity. Discover the Sovereign Treasury and the Immortal Digital Mentor within POTransfora.
-              </p>
-            </div>
+          <div className="mx-auto max-w-4xl text-center">
+            <h2 className="mb-6 text-[10px] font-bold tracking-[0.5em] uppercase text-[#00A3FF]">
+               POTRANSFORA X SOVEREIGN MINIMALISM.
+            </h2>
+            <h1 className="mb-8 text-5xl font-extrabold leading-[1.1] tracking-tight sm:text-7xl">
+              POTransfora | Algorithmic Justice & Digital Sovereignty Protocol
+            </h1>
+            <p className="mx-auto max-w-2xl text-lg leading-relaxed text-zinc-600 dark:text-zinc-400">
+              • Leading the future with the Organizational DNA Protocol and Cyber-Human Immunity. Discover the Sovereign Treasury and the Immortal Digital Mentor within POTransfora.
+            </p>
           </div>
-        </div>
+        </section>
 
-        <div className="flex flex-col gap-5 sm:flex-row mt-12 w-full sm:w-auto">
-          <a className="flex h-14 items-center justify-center rounded-full bg-[#00A3FF] px-10 text-sm font-bold text-white transition-all hover:bg-[#0082CC]" href="#">
-            استكشف السيادة
-          </a>
-          <div className="flex items-center justify-center text-zinc-400 text-[10px] tracking-[0.3em] uppercase italic font-bold">
-             STATUS: Done
+        {/* --- CAPABILITIES GRID (EN PLACEHOLDERS) --- */}
+        <section className="mx-auto max-w-7xl px-6 py-24">
+          <div className="grid gap-8 md:grid-cols-3">
+            {[1, 2, 3].map((i) => (
+              <div key={i} className="group relative overflow-hidden rounded-2xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900/50 p-8 transition-all hover:border-[#00A3FF]/50">
+                <div className="mb-4 text-[#00A3FF] font-black text-xl">0{i}</div>
+                <h3 className="mb-3 text-xl font-bold italic uppercase tracking-tight">System Module</h3>
+                <p className="text-sm text-zinc-500 leading-relaxed">
+                  Data for this sovereign module will be injected automatically from the Content Database in Notion.
+                </p>
+                <div className="absolute -bottom-2 -right-2 h-16 w-16 rotate-12 bg-[#00A3FF] opacity-[0.02] transition-transform group-hover:scale-150"></div>
+              </div>
+            ))}
           </div>
-        </div>
-
-        <div className="absolute top-0 right-0 w-40 h-40 bg-[#00A3FF] opacity-[0.04] rounded-bl-[100px]"></div>
+        </section>
       </main>
+
+      {/* --- FOOTER --- */}
+      <footer className="border-t border-zinc-200 dark:border-zinc-800 px-6 py-12">
+        <div className="mx-auto max-w-7xl flex flex-col md:flex-row justify-between items-center gap-6">
+          <p className="text-[10px] font-medium tracking-widest text-zinc-500 uppercase">
+            © 2026 TRANSFORA EMPIRE. ALL RIGHTS RESERVED.
+          </p>
+          <div className="h-[1px] w-12 bg-zinc-300 dark:bg-zinc-700 md:block hidden"></div>
+          <p className="text-[10px] font-black italic text-[#00A3FF]">
+            CORE VERSION 6.0
+          </p>
+        </div>
+      </footer>
     </div>
   );
 }
