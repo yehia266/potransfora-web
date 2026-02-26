@@ -1,4 +1,7 @@
 
+// Deployment ID: 2026-02-26T15:36:38.854Z 
+// This comment ensures GitHub sees a change even if data is the same.
+
 import { motion, AnimatePresence } from "framer-motion";
 import { useState, useEffect } from "react";
 
@@ -27,7 +30,7 @@ export default function Home() {
     <div className="flex min-h-screen flex-col bg-[#050505] text-white selection:bg-[#00A3FF] overflow-x-hidden">
       <header className="fixed top-0 z-50 w-full border-b border-white/10 bg-black/80 backdrop-blur-md px-6 py-4 flex justify-between items-center">
         <div className="flex items-center gap-3">
-          <img src="https://r.jina.ai/i/0c4664c126564614be75276e036e8b7d" className="h-10 w-10 rounded-xl border border-white/10" />
+          <img src="https://r.jina.ai/i/0c4664c126564614be75276e036e8b7d" className="h-10 w-10 rounded-xl border border-white/20" />
           <span className="text-xl font-black tracking-tighter uppercase">POTRANSFORA</span>
         </div>
         <span className="text-[10px] font-bold text-zinc-500 uppercase tracking-[0.2em]">SYSTEM: {notionData.status}</span>
