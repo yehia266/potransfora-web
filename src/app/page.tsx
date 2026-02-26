@@ -1,24 +1,20 @@
-
-// Deployment ID: 2026-02-26T15:36:38.854Z 
-// This comment ensures GitHub sees a change even if data is the same.
-
+// Deployment ID: 2026-02-26T15:43:55.428Z
 import { motion, AnimatePresence } from "framer-motion";
 import { useState, useEffect } from "react";
 
 export default function Home() {
   const [index, setIndex] = useState(0);
   const notionData = {
-    seo_title: "POTransfora | Algorithmic Justice & Digital Sovereignty Prot",
-    seo_description: "• Leading the future with the Organizational DNA Protocol and Cyber-Human Immunity. Discover the Sovereign Treasury and the Immortal Digital Mentor within POTra",
+    seo_title: "POTransfora | Algorithmic Justice & Digital Sovereignty Protocol",
+    seo_description: "• Leading the future with the Organizational DNA Protocol and Cyber-Human Immunity. Discover the Sovereign Treasury and the Immortal Digital Mentor within POTransfora.",
     brand_identity: "POTRANSFORA X SOVEREIGN MINIMALISM.",
-    status: "Done",
     dynamic_keywords: "Future".split(","),
     inspiring_names: "".split(","),
     quote: ""
   };
 
   useEffect(() => {
-    if (notionData.dynamic_keywords.length > 0 && notionData.dynamic_keywords[0] !== "") {
+    if (notionData.dynamic_keywords.length > 1) {
       const timer = setInterval(() => {
         setIndex((prev) => (prev + 1) % notionData.dynamic_keywords.length);
       }, 3000);
@@ -30,10 +26,9 @@ export default function Home() {
     <div className="flex min-h-screen flex-col bg-[#050505] text-white selection:bg-[#00A3FF] overflow-x-hidden">
       <header className="fixed top-0 z-50 w-full border-b border-white/10 bg-black/80 backdrop-blur-md px-6 py-4 flex justify-between items-center">
         <div className="flex items-center gap-3">
-          <img src="https://r.jina.ai/i/0c4664c126564614be75276e036e8b7d" className="h-10 w-10 rounded-xl border border-white/20" />
+          <img src="https://r.jina.ai/i/0c4664c126564614be75276e036e8b7d" className="h-10 w-10 rounded-xl" alt="Logo" />
           <span className="text-xl font-black tracking-tighter uppercase">POTRANSFORA</span>
         </div>
-        <span className="text-[10px] font-bold text-zinc-500 uppercase tracking-[0.2em]">SYSTEM: {notionData.status}</span>
       </header>
 
       <main className="flex-1 pt-40">
@@ -44,7 +39,9 @@ export default function Home() {
             <AnimatePresence mode="wait">
               <motion.span 
                 key={index} 
-                initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -10 }} 
+                initial={{ opacity: 0, y: 10 }} 
+                animate={{ opacity: 1, y: 0 }} 
+                exit={{ opacity: 0, y: -10 }} 
                 className="text-[#00A3FF]"
               >
                 {notionData.dynamic_keywords[index]}
@@ -53,8 +50,12 @@ export default function Home() {
           </h1>
         </section>
 
-        <div className="my-24 border-y border-white/5 py-12 overflow-hidden bg-zinc-900/20">
-          <motion.div animate={{ x: ["0%", "-50%"] }} transition={{ repeat: Infinity, duration: 45, ease: "linear" }} className="flex whitespace-nowrap">
+        <div className="my-24 border-y border-white/5 py-12 overflow-hidden">
+          <motion.div 
+            animate={{ x: ["0%", "-50%"] }} 
+            transition={{ repeat: Infinity, duration: 45, ease: "linear" }} 
+            className="flex whitespace-nowrap"
+          >
             {[...notionData.inspiring_names, ...notionData.inspiring_names].map((name, i) => (
               <span key={i} className="mx-16 text-5xl font-black italic opacity-10 uppercase">{name}</span>
             ))}
