@@ -12,7 +12,7 @@ export default function Home() {
         <div className="mx-auto flex max-w-7xl items-center justify-between">
           <div className="flex items-center gap-2">
             <div className="h-6 w-1 bg-[#00A3FF]"></div>
-            <span className="text-lg font-black tracking-tighter uppercase">TRANSFORA</span>
+            <span className="text-lg font-black tracking-tighter uppercase">POTRANSFORA</span>
           </div>
           <div className="flex items-center gap-4">
             <span className="flex items-center gap-1.5 text-[10px] font-bold tracking-[0.2em] uppercase text-zinc-400">
@@ -62,7 +62,7 @@ export default function Home() {
       <footer className="border-t border-zinc-200 dark:border-zinc-800 px-6 py-12">
         <div className="mx-auto max-w-7xl flex flex-col md:flex-row justify-between items-center gap-6">
           <p className="text-[10px] font-medium tracking-widest text-zinc-500 uppercase">
-            © 2026 TRANSFORA EMPIRE. ALL RIGHTS RESERVED.
+            © 2026 POTRANSFORA . ALL RIGHTS RESERVED.
           </p>
           <div className="h-[1px] w-12 bg-zinc-300 dark:bg-zinc-700 md:block hidden"></div>
           <p className="text-[10px] font-black italic text-[#00A3FF]">
