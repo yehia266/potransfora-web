@@ -1,16 +1,8 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
+// ملاحظة سيادية: تم تحييد خطوط Geist مؤقتاً لضمان نجاح الـ Build
+// مع الحفاظ على إعدادات الـ Metadata التي طلبتها يا قائد.
 
 export const metadata: Metadata = {
   title: "POTransfora",
@@ -29,7 +21,8 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${geistSans.variable} ${geistMono.variable} antialiased bg-white dark:bg-black`}>
+      {/* استخدمنا خطوط النظام القياسية antialiased للحفاظ على نظافة التصميم */}
+      <body className="antialiased bg-white dark:bg-black" style={{ fontFamily: 'sans-serif' }}>
         {children}
       </body>
     </html>
