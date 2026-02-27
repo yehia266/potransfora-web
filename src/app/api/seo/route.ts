@@ -1,32 +1,43 @@
 import { NextResponse } from 'next/server';
 
+// مخزن مؤقت للبيانات (عشان الـ GET تلاقي حاجة تبعتها للموقع)
+let cachedSovereignData = {
+  seo_title: "POTransfora",
+  Header_Logo_Text: "POTRANSFORA",
+  Core_Color_Palette: "#0F172A",
+  System_Status: "Online"
+};
+
 export async function POST(request: Request) {
   try {
-    // استخراج المفتاح من الـ Headers للتحقق
     const authKey = request.headers.get('X-Transfora-Key');
     const SOVEREIGN_KEY = "TF-Nexus-Sovereign-2026-Alpha-99-Safe";
 
     if (authKey !== SOVEREIGN_KEY) {
-      console.error("🚨 Unauthorized Access Attempt Detected!");
-      return NextResponse.json({ success: false, error: "Access Denied: Invalid Sovereign Key" }, { status: 401 });
+      return NextResponse.json({ success: false, error: "Access Denied" }, { status: 401 });
     }
 
     const data = await request.json();
-    const { seo_title, seo_description, seo_status } = data;
-
-    console.log("🛡️ Verified Data Received:", { seo_title, seo_status });
+    
+    // التعديل الجوهري: حفظ البيانات في الـ Cache عشان الـ GET تشوفها
+    cachedSovereignData = { ...cachedSovereignData, ...data };
 
     return NextResponse.json({ 
       success: true, 
       message: "T9-CORE-02-Security-Shield: Data Secured & Injected",
-      received: { title: seo_title, status: seo_status }
+      received_fields: Object.keys(data)
     }, { status: 200 });
 
   } catch (error) {
-    return NextResponse.json({ success: false, error: "Critical Error in Data Stream" }, { status: 400 });
+    return NextResponse.json({ success: false, error: "Critical Error" }, { status: 400 });
   }
 }
 
 export async function GET() {
-  return NextResponse.json({ status: "Encrypted", node: "T9-CORE-02-Security-Shield" });
+  // التعديل الجوهري: إرسال البيانات الحقيقية للموقع
+  return NextResponse.json(cachedSovereignData, {
+    headers: {
+      'Cache-Control': 'no-cache, no-store, must-revalidate'
+    }
+  });
 }
