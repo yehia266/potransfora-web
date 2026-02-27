@@ -14,21 +14,37 @@ export default function SovereignMaster() {
         const res = await fetch('/api/seo?v=' + Date.now());
         const json = await res.json();
         setData(json);
-        // تحديث عنوان التبويب ديناميكياً (seo_title)
+        
+        // --- [T9-CORE-02: SEO Injection Engine] ---
         if (json.seo_title) document.title = json.seo_title;
-      } catch (e) { console.error("Data Fetch Error", e); }
+        if (json.seo_description) {
+          const metaDesc = document.querySelector('meta[name="description"]');
+          if (metaDesc) {
+            metaDesc.setAttribute("content", json.seo_description);
+          } else {
+            const newMeta = document.createElement('meta');
+            newMeta.name = "description";
+            newMeta.content = json.seo_description;
+            document.head.appendChild(newMeta);
+          }
+        }
+      } catch (e) { console.error("Sovereign Fetch Error", e); }
     };
     fetchData();
   }, []);
 
-  if (!data) return <div className="bg-black min-h-screen flex items-center justify-center text-white font-mono uppercase tracking-[0.5em]">Initializing 16-Core System...</div>;
+  if (!data) return (
+    <div className="bg-black min-h-screen flex items-center justify-center text-white font-mono uppercase tracking-[0.5em] animate-pulse">
+      Initializing 16-Core Sovereign System...
+    </div>
+  );
 
   return (
     <div className="min-h-screen text-white flex flex-col overflow-x-hidden transition-colors duration-1000" 
          style={{ backgroundColor: data.Core_Color_Palette, fontFamily: data.Typography_Standard }}>
       
       {/* Header السيادي */}
-      <header className="fixed top-0 w-full z-50 p-6 flex justify-between items-center border-b border-white/5"
+      <header className="fixed top-0 w-full z-50 p-6 flex justify-between items-center border-b border-white/5 bg-black/10 backdrop-blur-md"
               style={{ backdropFilter: `blur(${data.Header_Blur_Level}px)`, WebkitBackdropFilter: `blur(${data.Header_Blur_Level}px)` }}>
         <div className="flex items-center gap-4">
           <div className="text-xl font-black italic tracking-tighter uppercase">{data.Header_Logo_Text}</div>
@@ -38,7 +54,7 @@ export default function SovereignMaster() {
           </div>
         </div>
         <nav className="hidden lg:flex gap-10 text-[9px] tracking-[0.4em] uppercase opacity-40">{data.Header_Menu}</nav>
-        <button className="text-[10px] px-8 py-2.5 rounded-full font-bold uppercase tracking-widest bg-white text-black active:scale-95 transition-all">
+        <button className="text-[10px] px-8 py-2.5 rounded-full font-bold uppercase tracking-widest bg-white text-black hover:invert transition-all active:scale-95 shadow-lg shadow-white/5">
           {data.Header_CTA_Button}
         </button>
       </header>
@@ -46,7 +62,7 @@ export default function SovereignMaster() {
       <main className="flex-grow flex flex-col items-center justify-center relative pt-20">
         {/* Lottie Soul - Character_Lottie_URL */}
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-2xl opacity-20 pointer-events-none">
-          {data.Character_Lottie_URL && <Player autoplay loop src={data.Character_Lottie_URL} />}
+          {data.Character_Lottie_URL && <Player autoplay loop src={data.Character_Lottie_URL} className="w-full h-full" />}
         </div>
 
         <div className="relative z-10 text-center px-4">
@@ -58,7 +74,9 @@ export default function SovereignMaster() {
           >
             {data.Header_Logo_Text}
           </motion.h1>
-          <p className="mt-6 text-xs md:text-sm tracking-[0.6em] uppercase font-light opacity-60">"{data.Inspiration_Quote}"</p>
+          <p className="mt-6 text-xs md:text-sm tracking-[0.6em] uppercase font-light opacity-60 max-w-3xl mx-auto leading-relaxed italic">
+            "{data.Inspiration_Quote}"
+          </p>
         </div>
 
         {/* الشريط المتحرك - Inspiring_Names */}
@@ -68,14 +86,21 @@ export default function SovereignMaster() {
             transition={{ repeat: Infinity, duration: parseInt(data.Footer_Scroll_Speed), ease: "linear" }}
             className="flex gap-20 text-[10px] tracking-[0.5em] uppercase font-mono"
           >
-            <span>{data.Inspiring_Names}</span>
-            <span>{data.Inspiring_Names}</span>
+            {[1, 2, 3, 4].map((i) => (
+              <span key={i}>{data.Inspiring_Names}</span>
+            ))}
           </motion.div>
         </div>
       </main>
 
-      <footer className="p-12 border-t border-white/5 text-center md:text-left">
-        <div className="text-[9px] tracking-[0.4em] uppercase opacity-30 font-mono">{data.Footer_Copyright}</div>
+      <footer className="p-12 border-t border-white/5 flex justify-between items-center bg-black/50 backdrop-blur-md">
+        <div className="text-[9px] tracking-[0.4em] uppercase opacity-30 font-mono">
+          {data.Footer_Copyright}
+        </div>
+        <div className="flex gap-10 text-[8px] tracking-[0.3em] uppercase opacity-20 font-bold border-l border-white/10 pl-8">
+          <span className="flex items-center gap-2">GLOBAL GATEWAY</span>
+          <span>v14.0 Stable</span>
+        </div>
       </footer>
     </div>
   );
