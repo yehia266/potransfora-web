@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 import "./globals.css";
 
-// ملاحظة سيادية: تم تحييد خطوط Geist مؤقتاً لضمان نجاح الـ Build
-// مع الحفاظ على إعدادات الـ Metadata التي طلبتها يا قائد.
+// ملاحظة سيادية: تم تحييد خطوط Geist لضمان استقرار الـ Build 100%
+// الاعتماد الآن على الأنظمة القياسية (Sans-Serif) لسرعة الأداء.
 
 export const metadata: Metadata = {
   title: "POTransfora",
@@ -20,9 +20,16 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      {/* استخدمنا خطوط النظام القياسية antialiased للحفاظ على نظافة التصميم */}
-      <body className="antialiased bg-white dark:bg-black" style={{ fontFamily: 'sans-serif' }}>
+    <html lang="en" suppressHydrationWarning>
+      <body 
+        className="antialiased" 
+        style={{ 
+          fontFamily: 'sans-serif', 
+          margin: 0, 
+          padding: 0,
+          backgroundColor: '#0F172A' // لون أساسي افتراضي لمنع الوميض الأبيض
+        }}
+      >
         {children}
       </body>
     </html>
