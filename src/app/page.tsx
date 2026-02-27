@@ -2,67 +2,60 @@
 "use client";
 import React from 'react';
 import { motion } from 'framer-motion';
-import { IconShieldCheck, IconLockSquareRounded, IconChartBar } from '@tabler/icons-react';
+import { Shield, Radio, Twitter, Linkedin, Github } from 'lucide-react';
 
 export default function Home() {
-  return (
-    <div className="relative min-h-screen w-full bg-[#020202] text-white flex flex-col items-center justify-center overflow-hidden font-sans">
-      <title>Potransfora</title>
-      
-      {/* الخلفية الضوئية (Aurora Effect) */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute -top-[30%] -left-[10%] w-[70%] h-[70%] bg-zinc-900/30 rounded-full blur-[120px]" />
-        <div className="absolute -bottom-[30%] -right-[10%] w-[60%] h-[60%] bg-zinc-800/20 rounded-full blur-[100px]" />
-      </div>
+  const statusColor = "Online" === "Online" ? "bg-emerald-500" : "bg-amber-500";
 
-      <main className="relative z-10 flex flex-col items-center">
-        {/* الشعار الرئيسي بتأثير الظهور التدريجي */}
+  return (
+    <div className="min-h-screen bg-[#050505] text-white flex flex-col font-sans selection:bg-white selection:text-black">
+      
+      {/* --- Sovereign Header --- */}
+      <header className="fixed top-0 w-full z-50 p-6 flex justify-between items-center border-b border-white/5 backdrop-blur-xl bg-black/20">
+        <div className="flex items-center gap-3">
+          <div className="text-xl font-black italic tracking-tighter uppercase text-white">POTRANSFORA</div>
+          <div className="flex items-center gap-2 px-3 py-1 bg-white/5 rounded-full border border-white/10">
+            <span className={`w-1.5 h-1.5 rounded-full animate-pulse ${statusColor}`}></span>
+            <span className="text-[8px] uppercase tracking-[0.2em] opacity-70">Online</span>
+          </div>
+        </div>
+        
+        <nav className="hidden md:flex gap-8 text-[10px] tracking-[0.3em] uppercase opacity-50">
+          <a href="#" className="hover:opacity-100 transition-all hover:tracking-[0.5em]">Home Projects Team</a>
+        </nav>
+
+        <button className="text-[10px] bg-white text-black px-6 py-2 rounded-full font-bold uppercase tracking-widest hover:bg-zinc-200 transition-colors">
+          REQUEST ACCESS
+        </button>
+      </header>
+
+      {/* --- Main Arena --- */}
+      <main className="flex-grow flex flex-col items-center justify-center relative overflow-hidden">
+        <div className="absolute w-full h-full bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-white/5 via-transparent to-transparent opacity-50"></div>
         <motion.h1 
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, ease: "easeOut" }}
-          className="text-7xl md:text-9xl font-black italic tracking-tighter bg-gradient-to-b from-white to-zinc-500 bg-clip-text text-transparent uppercase"
+          initial={{ opacity: 0, scale: 0.95 }}
+          animate={{ opacity: 1, scale: 1 }}
+          className="text-[15vw] font-black italic tracking-tighter leading-none select-none text-white/90"
         >
           POTRANSFORA
         </motion.h1>
-
-        {/* العنوان الفرعي */}
-        <motion.p 
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 0.5 }}
-          transition={{ delay: 0.5, duration: 1 }}
-          className="mt-4 text-sm md:text-lg font-light tracking-[0.8em] uppercase text-zinc-400"
-        >
-          Sovereign Management System
-        </motion.p>
-
-        {/* شريط الأيقونات السيادية */}
-        <motion.div 
-          initial={{ opacity: 0, scale: 0.8 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ delay: 0.8 }}
-          className="flex gap-8 mt-16 p-4 border-t border-b border-zinc-800/50"
-        >
-          <IconShieldCheck size={20} className="text-zinc-500 hover:text-white transition-colors" />
-          <IconLockSquareRounded size={20} className="text-zinc-500 hover:text-white transition-colors" />
-          <IconChartBar size={20} className="text-zinc-500 hover:text-white transition-colors" />
-        </motion.div>
-
-        {/* شريط الأسماء المتحرك السفلي */}
-        <div className="absolute bottom-10 w-full flex justify-center overflow-hidden whitespace-nowrap opacity-20 text-[10px] tracking-[0.3em] uppercase">
-          <div className="flex gap-10">
-            <span>Steve Jobs Elon Musk Marcus Aurelius King Faisal</span>
-          </div>
-        </div>
       </main>
 
-      {/* لمسة تقنية في الأركان */}
-      <div className="absolute top-10 left-10 text-[8px] text-zinc-700 font-mono uppercase tracking-widest">
-        Sovereign System v11.0 // Active
-      </div>
-      <div className="absolute bottom-10 right-10 text-[8px] text-zinc-700 font-mono uppercase tracking-widest">
-        Est. 2026 // Potransfora
-      </div>
+      {/* --- Sovereign Footer --- */}
+      <footer className="p-10 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-8 bg-black/40">
+        <div className="text-[9px] tracking-[0.4em] uppercase opacity-30">© 2026 POTRANSFORA. All Rights Reserved</div>
+        
+        <div className="flex gap-8 opacity-40">
+          <a href="WWW.POTRANSFORA.COM" className="hover:opacity-100 hover:text-white transition-all"><Twitter size={14} /></a>
+          <a href="#" className="hover:opacity-100 hover:text-white transition-all"><Linkedin size={14} /></a>
+          <a href="#" className="hover:opacity-100 hover:text-white transition-all"><Github size={14} /></a>
+        </div>
+
+        <div className="flex gap-6 text-[8px] tracking-widest uppercase opacity-20 font-mono">
+          <span>Encrypted Connection</span>
+          <span>v13.0 Stable</span>
+        </div>
+      </footer>
     </div>
   );
 }
