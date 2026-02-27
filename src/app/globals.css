@@ -2,12 +2,54 @@
 @tailwind components;
 @tailwind utilities;
 
+/* 🛡️ إعدادات الجسر السيادي للمتغيرات */
 :root {
   --background: #000000;
   --foreground: #ffffff;
+  /* سيتم حقن الخط والألوان ديناميكياً من Notion عبر React */
 }
 
-body {
-  color: var(--foreground);
-  background: var(--background);
+@layer base {
+  html {
+    /* ضمان نعومة التمرير والخطوط البريميوم */
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    color: var(--foreground);
+    background: var(--background);
+    /* إلغاء أي حواف افتراضية قد تكسر الهوية البصرية */
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+  }
+}
+
+/* 🛡️ تأثيرات الزجاج السيادي (Glassmorphism) للهيدر */
+.glass-header {
+  background: rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(var(--blur-level, 20px));
+  -webkit-backdrop-filter: blur(var(--blur-level, 20px));
+}
+
+/* 🛡️ تنسيق الأنيميشن الخاص بـ Lottie لضمان التمركز المطلق */
+.lottie-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  mix-blend-mode: screen; /* لجعل خلفية الأنيميشن شفافة تماماً مع الموقع */
+}
+
+/* 🛡️ تخصيص شريط التمرير (Scrollbar) ليكون غير مرئي أو أنيق */
+::-webkit-scrollbar {
+  width: 3px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
 }
