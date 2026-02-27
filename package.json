@@ -16,7 +16,8 @@
     "@tabler/icons-react": "^3.0.0",
     "lucide-react": "^0.344.0",
     "clsx": "^2.1.0",
-    "tailwind-merge": "^2.2.0"
+    "tailwind-merge": "^2.2.0",
+    "@lottiefiles/react-lottie-player": "^3.5.3"
   },
   "devDependencies": {
     "typescript": "^5",
