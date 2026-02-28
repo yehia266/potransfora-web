@@ -2,9 +2,15 @@
 import React from 'react';
 
 export default function SovereignMaster() {
+  // تعريف كافة المتغيرات في بداية الدالة لتجنب أخطاء ReferenceError
   const bgColor = "#FFFFFF";
   
-  // استدعاء الألوان المستقلة من Notion
+  // النصوص المفصلة من Notion
+  const logoText = "POTRANSFORA";
+  const heroText = "POTRANSFORA";
+  const quoteText = "Where Technology Meets Sovereignty: Crafting the DNA of the Digital Empire.";
+
+  // الألوان المفصلة من Notion
   const logoColor = "white";
   const titleColor = "white";
   const quoteColor = "rgba(255,255,255,0.6)";
@@ -31,13 +37,14 @@ export default function SovereignMaster() {
         alignItems: 'center',
         zIndex: 50
       }}>
+        {/* اللوجو العلوي */}
         <div style={{ 
           fontSize: '24px', 
           fontWeight: '900', 
           letterSpacing: '0.2em', 
           fontStyle: 'italic',
           color: logoColor 
-        }}>POTRANSFORA</div>
+        }}>{logoText}</div>
       </header>
 
       <main style={{
@@ -48,6 +55,7 @@ export default function SovereignMaster() {
         justifyContent: 'center',
         zIndex: 10
       }}>
+        {/* العنوان الضخم المركزي */}
         <h1 style={{
           fontSize: '12vw',
           fontWeight: '900',
@@ -55,8 +63,9 @@ export default function SovereignMaster() {
           margin: 0,
           lineHeight: 0.9,
           color: titleColor
-        }}>POTRANSFORA</h1>
+        }}>{heroText}</h1>
         
+        {/* الوصف (Quote) */}
         <p style={{
           marginTop: '40px',
           fontSize: '14px',
@@ -67,7 +76,7 @@ export default function SovereignMaster() {
           borderTop: `1px solid ${quoteColor}`,
           paddingTop: '30px',
           opacity: 0.8
-        }}>Where Technology Meets Sovereignty: Crafting the DNA of the Digital Empire.</p>
+        }}>{quoteText}</p>
       </main>
 
       <footer style={{
@@ -83,7 +92,7 @@ export default function SovereignMaster() {
           © 2026 POTRANSFORA. All Rights Reserved
         </div>
         <div style={{ color: footerVersionColor }}>
-          v14.2.3 Stable | SECURE GLOBAL GATEWAY
+          v14.2.3 Stable | IDENTITY SEPARATION
         </div>
       </footer>
     </div>
