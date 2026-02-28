@@ -12,12 +12,12 @@ export default function SovereignMaster() {
 
   return (
     <div className="min-h-screen text-white flex flex-col font-sans overflow-x-hidden relative" 
-         style={{ backgroundColor: "#000000", backgroundImage: 'radial-gradient(circle at 50% -20%, #1e293b 0%, transparent 80%)' }}>
+         style={{ backgroundColor: "#05070A", backgroundImage: 'radial-gradient(circle at 50% -20%, #1e293b 0%, transparent 80%)' }}>
       
       {/* 1. الـ Lottie في الخلفية - الروح البصرية */}
       <div className="absolute inset-0 z-0 opacity-20 pointer-events-none flex items-center justify-center">
         {isLoaded && (
-          <Player autoplay loop src="https://assets9.lottiefiles.com/packages/lf20_qu4v78tt.json" style={{ width: '800px', height: '800px' }} />
+          <Player autoplay loop src="https://assets10.lottiefiles.com/packages/lf20_cwA59L.json" style={{ width: '800px', height: '800px' }} />
         )}
       </div>
 
@@ -45,15 +45,15 @@ export default function SovereignMaster() {
             POTRANSFORA
           </motion.h1>
           <motion.p initial={{ opacity: 0 }} animate={{ opacity: 0.6 }} className="mt-6 text-xs md:text-sm tracking-[0.6em] uppercase font-light max-w-2xl mx-auto leading-loose">
-            "Sovereignty is not just about power, but about attention to detail and clarity of vision.”
+            Where Technology Meets Sovereignty: Crafting the DNA of the Digital Empire.
           </motion.p>
         </div>
 
         {/* 2. شريط الأسماء الملهمة - Legends Row */}
         <div className="absolute bottom-32 w-full overflow-hidden whitespace-nowrap opacity-10 border-y border-white/5 py-4">
           <motion.div animate={{ x: [0, -1000] }} transition={{ repeat: Infinity, duration: 0.5625, ease: "linear" }} className="flex gap-20 text-[10px] tracking-[0.5em] uppercase font-mono">
-            <span>Steve Jobs • Elon Musk</span>
-            <span>Steve Jobs • Elon Musk</span>
+            <span>Marcus Aurelius • Nikola Tesla • Alan Turing • Steve Jobs • Omar Sobhy</span>
+            <span>Marcus Aurelius • Nikola Tesla • Alan Turing • Steve Jobs • Omar Sobhy</span>
           </motion.div>
         </div>
       </main>
