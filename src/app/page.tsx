@@ -2,18 +2,23 @@
 import React from 'react';
 
 export default function SovereignMaster() {
-  // تعريف كافة المتغيرات في بداية الدالة لتجنب أخطاء ReferenceError
-  const bgColor = "#FFFFFF";
+  // 1. تعريف خلفية الموقع
+  const bgColor = "#05070a";
   
-  // النصوص المفصلة من Notion
+  // 2. إعدادات الهيدر المستقلة (الجديدة)
   const logoText = "POTRANSFORA";
-  const heroText = "POTRANSFORA";
-  const quoteText = "Where Technology Meets Sovereignty: Crafting the DNA of the Digital Empire.";
-
-  // الألوان المفصلة من Notion
   const logoColor = "white";
+  const logoFontChoice = "serif";
+  const blurLevel = "10px"; // القيمة من Notion
+  const logoFontFamily = logoFontChoice === 'sans-serif' ? "'Inter', sans-serif" : "'Playfair Display', serif";
+
+  // 3. إعدادات الهيرو المستقلة
+  const heroText = "POTRANSFORA";
   const titleColor = "white";
+  const quoteText = "SOVEREIGNTY THROUGH KNOWLEDGE";
   const quoteColor = "rgba(255,255,255,0.6)";
+
+  // 4. إعدادات الفوتر
   const footerCopyColor = "rgba(255,255,255,0.4)";
   const footerVersionColor = "rgba(255,255,255,0.4)";
 
@@ -25,8 +30,10 @@ export default function SovereignMaster() {
       flexDirection: 'column',
       fontFamily: "'Playfair Display', serif",
       position: 'relative',
-      overflow: 'hidden'
+      overflow: 'hidden',
+      color: 'inherit'
     }}>
+      {/* الهيدر المطور بخاصية Glassmorphism */}
       <header style={{
         position: 'fixed',
         top: 0,
@@ -35,15 +42,20 @@ export default function SovereignMaster() {
         display: 'flex',
         justifyContent: 'space-between',
         alignItems: 'center',
-        zIndex: 50
+        zIndex: 50,
+        // ذكاء الخلفية: إذا كانت بيضاء تكون الشفافية بيضاء، وإذا كانت سوداء تكون سوداء
+        backgroundColor: bgColor === '#FFFFFF' || bgColor === 'white' ? 'rgba(255, 255, 255, 0.4)' : 'rgba(0, 0, 0, 0.4)',
+        backdropFilter: `blur(${blurLevel})`,
+        WebkitBackdropFilter: `blur(${blurLevel})`, // لدعم متصفحات Safari
+        borderBottom: bgColor === '#FFFFFF' || bgColor === 'white' ? '1px solid rgba(0,0,0,0.05)' : '1px solid rgba(255,255,255,0.05)'
       }}>
-        {/* اللوجو العلوي */}
         <div style={{ 
           fontSize: '24px', 
           fontWeight: '900', 
           letterSpacing: '0.2em', 
-          fontStyle: 'italic',
-          color: logoColor 
+          fontStyle: logoFontChoice === 'serif' ? 'italic' : 'normal',
+          color: logoColor,
+          fontFamily: logoFontFamily
         }}>{logoText}</div>
       </header>
 
@@ -55,7 +67,6 @@ export default function SovereignMaster() {
         justifyContent: 'center',
         zIndex: 10
       }}>
-        {/* العنوان الضخم المركزي */}
         <h1 style={{
           fontSize: '12vw',
           fontWeight: '900',
@@ -65,7 +76,6 @@ export default function SovereignMaster() {
           color: titleColor
         }}>{heroText}</h1>
         
-        {/* الوصف (Quote) */}
         <p style={{
           marginTop: '40px',
           fontSize: '14px',
@@ -89,10 +99,10 @@ export default function SovereignMaster() {
         zIndex: 10
       }}>
         <div style={{ color: footerCopyColor }}>
-          © 2026 POTRANSFORA. All Rights Reserved
+          ${cleanData.footer_copyright || '© 2026 POTRANSFORA'}
         </div>
         <div style={{ color: footerVersionColor }}>
-          v14.2.3 Stable | IDENTITY SEPARATION
+          ${cleanData.global_gateway_version || 'v14.4.8'} | BLUR CONTROL READY
         </div>
       </footer>
     </div>
