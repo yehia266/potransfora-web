@@ -2,25 +2,21 @@
 import React from 'react';
 
 export default function SovereignMaster() {
-  // 1. تعريف خلفية الموقع
+  // 1. تعريف كافة المتغيرات في البداية (لمنع أي ReferenceError)
   const bgColor = "#05070a";
-  
-  // 2. إعدادات الهيدر المستقلة (الجديدة)
   const logoText = "POTRANSFORA";
   const logoColor = "white";
   const logoFontChoice = "serif";
-  const blurLevel = "10px"; // القيمة من Notion
-  const logoFontFamily = logoFontChoice === 'sans-serif' ? "'Inter', sans-serif" : "'Playfair Display', serif";
-
-  // 3. إعدادات الهيرو المستقلة
+  const blurLevel = "10px";
   const heroText = "POTRANSFORA";
   const titleColor = "white";
   const quoteText = "SOVEREIGNTY THROUGH KNOWLEDGE";
   const quoteColor = "rgba(255,255,255,0.6)";
-
-  // 4. إعدادات الفوتر
   const footerCopyColor = "rgba(255,255,255,0.4)";
   const footerVersionColor = "rgba(255,255,255,0.4)";
+
+  // منطق اختيار الخط
+  const logoFontFamily = logoFontChoice === 'sans-serif' ? "'Inter', sans-serif" : "'Playfair Display', serif";
 
   return (
     <div style={{
@@ -30,10 +26,9 @@ export default function SovereignMaster() {
       flexDirection: 'column',
       fontFamily: "'Playfair Display', serif",
       position: 'relative',
-      overflow: 'hidden',
-      color: 'inherit'
+      overflow: 'hidden'
     }}>
-      {/* الهيدر المطور بخاصية Glassmorphism */}
+      {/* الهيدر المطور */}
       <header style={{
         position: 'fixed',
         top: 0,
@@ -43,10 +38,9 @@ export default function SovereignMaster() {
         justifyContent: 'space-between',
         alignItems: 'center',
         zIndex: 50,
-        // ذكاء الخلفية: إذا كانت بيضاء تكون الشفافية بيضاء، وإذا كانت سوداء تكون سوداء
         backgroundColor: bgColor === '#FFFFFF' || bgColor === 'white' ? 'rgba(255, 255, 255, 0.4)' : 'rgba(0, 0, 0, 0.4)',
         backdropFilter: `blur(${blurLevel})`,
-        WebkitBackdropFilter: `blur(${blurLevel})`, // لدعم متصفحات Safari
+        WebkitBackdropFilter: `blur(${blurLevel})`,
         borderBottom: bgColor === '#FFFFFF' || bgColor === 'white' ? '1px solid rgba(0,0,0,0.05)' : '1px solid rgba(255,255,255,0.05)'
       }}>
         <div style={{ 
@@ -102,7 +96,7 @@ export default function SovereignMaster() {
           ${cleanData.footer_copyright || '© 2026 POTRANSFORA'}
         </div>
         <div style={{ color: footerVersionColor }}>
-          ${cleanData.global_gateway_version || 'v14.4.8'} | BLUR CONTROL READY
+          ${cleanData.global_gateway_version || 'v14.4.9'} | SYSTEM ONLINE
         </div>
       </footer>
     </div>
