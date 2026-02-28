@@ -4,16 +4,16 @@ import React from 'react';
 export default function SovereignMaster() {
   // جميع القيم تم حقنها مباشرة كـ Constants لضمان استقرار GitHub/Vercel
   const CONFIG = {
-    bg: "#05070a",
+    bg: "#FFFFFF ",
     logo: "POTRANSFORA",
     hero: "POTRANSFORA",
-    logoCol: "white",
+    logoCol: "#000000",
     heroCol: "white",
-    quote: "SOVEREIGNTY THROUGH KNOWLEDGE",
+    quote: "Where Technology Meets Sovereignty: Crafting the DNA of the Digital Empire.",
     quoteCol: "rgba(255,255,255,0.6)",
-    blur: "10px",
-    copy: "© 2026 POTRANSFORA",
-    ver: "v14.5.0"
+    blur: "20",
+    copy: "© 2026 POTRANSFORA. All Rights Reserved",
+    ver: "v14.2.3 Stable"
   };
 
   return (
