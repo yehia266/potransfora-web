@@ -1,6 +1,6 @@
 import { NextResponse } from 'next/server';
 
-// المخزن المؤقت المتوافق مع الـ 21 حزمة (تحديث سيادي 2026)
+// التحديث السيادي لـ 21 حزمة (تجنب الفخ التقني)
 let cachedSovereignData = {
   seo_title: "POTRANSFORA",
   seo_description: "Sovereign Empire Management System",
@@ -28,22 +28,16 @@ let cachedSovereignData = {
 export async function POST(request: Request) {
   try {
     const authKey = request.headers.get('X-Transfora-Key');
-    const SOVEREIGN_KEY = "TF-Nexus-Sovereign-2026-Alpha-99-Safe";
-
-    if (authKey !== SOVEREIGN_KEY) {
+    if (authKey !== "TF-Nexus-Sovereign-2026-Alpha-99-Safe") {
       return NextResponse.json({ success: false, error: "Access Denied" }, { status: 401 });
     }
-
     const data = await request.json();
-    // دمج ذكي: يحافظ على القديم ويحدث الجديد فقط
     cachedSovereignData = { ...cachedSovereignData, ...data };
-
     return NextResponse.json({ 
       success: true, 
       message: "T9-CORE-02: 21 Sovereign Shields Fully Activated",
       received_fields: Object.keys(data)
-    }, { status: 200 });
-
+    });
   } catch (error) {
     return NextResponse.json({ success: false, error: "Critical Injection Error" }, { status: 400 });
   }
