@@ -2,67 +2,34 @@
 @tailwind components;
 @tailwind utilities;
 
-/* 🛡️ إعدادات الجسر السيادي للمتغيرات */
 :root {
-  --background: #000000;
+  --background: #05070A;
   --foreground: #ffffff;
-  /* سيتم حقن الخط والألوان ديناميكياً من Notion عبر React */
 }
 
 @layer base {
   html {
-    /* ضمان نعومة التمرير والخطوط البريميوم */
     scroll-behavior: smooth;
     -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
   }
-
   body {
+    background-color: var(--background);
     color: var(--foreground);
-    background: var(--background);
-    /* إلغاء أي حواف افتراضية قد تكسر الهوية البصرية */
     margin: 0;
     padding: 0;
     overflow-x: hidden;
   }
-
-  /* T9-CORE-02: إضافة الانسيابية لوسم العنوان الرئيسي
-     لضمان انتقال ناعم لوزن الخط عند التغيير من Notion
-  */
-  h1 {
-    transition: font-weight 0.5s ease, color 0.5s ease;
-  }
 }
 
-/* 🛡️ تأثيرات الزجاج السيادي (Glassmorphism) للهيدر */
+/* تأثير الزجاج المصنفر السيادي */
 .glass-header {
-  background: rgba(0, 0, 0, 0.1);
+  background: rgba(255, 255, 255, 0.03);
   backdrop-filter: blur(var(--blur-level, 20px));
   -webkit-backdrop-filter: blur(var(--blur-level, 20px));
 }
 
-/* 🛡️ تنسيق الأنيميشن الخاص بـ Lottie لضمان التمركز المطلق */
+/* تحسين اندماج الـ Lottie */
 .lottie-container {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  mix-blend-mode: screen; /* لجعل خلفية الأنيميشن شفافة تماماً مع الموقع */
-}
-
-/* 🛡️ تخصيص شريط التمرير ليتناسب مع فخامة الإمبراطورية */
-::-webkit-scrollbar {
-  width: 5px;
-}
-
-::-webkit-scrollbar-track {
-  background: #000;
-}
-
-::-webkit-scrollbar-thumb {
-  background: #1e293b;
-  border-radius: 10px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: #334155;
+  mix-blend-mode: plus-lighter;
+  pointer-events: none;
 }
