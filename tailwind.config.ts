@@ -10,20 +10,11 @@ const config: Config = {
   theme: {
     extend: {
       fontFamily: {
-        // ربط الخطوط بملف layout.tsx المطور
         serif: ["var(--font-playfair)", "serif"],
         sans: ["var(--font-inter)", "sans-serif"],
       },
-      colors: {
-        // فتح المجال لبيانات Notion للتحكم في الألوان
-        sovereign: {
-          dark: "#05070A",
-          accent: "#FFFFFF",
-          glass: "rgba(255, 255, 255, 0.05)",
-        },
-      },
       backgroundImage: {
-        "imperial-gradient": "radial-gradient(circle at 50% -20%, #1e293b 0%, transparent 80%)",
+        'imperial-gradient': 'radial-gradient(circle at 50% -20%, #1e293b 0%, transparent 85%)',
       },
     },
   },
