@@ -1,23 +1,28 @@
 import { NextResponse } from 'next/server';
 
-// المخزن المؤقت المتوافق مع الـ 16 حزمة (حالة الأحرف دقيقة جداً)
+// المخزن المؤقت المتوافق مع الـ 21 حزمة (تحديث سيادي 2026)
 let cachedSovereignData = {
   seo_title: "POTRANSFORA",
   seo_description: "Sovereign Empire Management System",
-  Inspiring_Names: "Steve Jobs • Elon Musk • Marcus Aurelius • King Faisal",
-  Inspiration_Quote: "Sovereignty is not just about power, but about attention to detail.",
+  dynamic_keywords: "Sovereignty, AI, Empire, Transfora",
   Core_Color_Palette: "#0F172A",
   Typography_Standard: "Playfair Display",
-  Header_Menu: "Home • Projects • Team",
+  Font_Weight_Hero: "900",
   Header_Logo_Text: "POTRANSFORA",
+  Inspiration_Quote: "Sovereignty is not just about power, but about attention to detail.",
+  Inspiring_Names: "Steve Jobs • Elon Musk • Marcus Aurelius",
+  Header_Menu: "Home • Projects • Team",
   Header_CTA_Button: "REQUEST ACCESS",
-  Footer_Copyright: "© 2026 POTRANSFORA. All Rights Reserved",
-  Footer_Social_Links: "#",
   System_Status: "Online",
   Character_Lottie_URL: "https://assets9.lottiefiles.com/packages/lf20_qu4v78tt.json",
-  Footer_Scroll_Speed: "40",
+  Header_Blur_Level: "20",
   Animation_Duration: "0.8",
-  Header_Blur_Level: "20"
+  Footer_Scroll_Speed: "40",
+  Footer_Copyright: "© 2026 POTRANSFORA. All Rights Reserved",
+  Footer_Social_Links: "#",
+  Global_Gateway_Version: "v14.2.3 Stable",
+  Maintenance_Mode: "false",
+  Analytics_ID: "G-XXXXXXXX"
 };
 
 export async function POST(request: Request) {
@@ -30,12 +35,12 @@ export async function POST(request: Request) {
     }
 
     const data = await request.json();
-    // دمج البيانات الجديدة مع الحفاظ على حالة الأحرف
+    // دمج ذكي: يحافظ على القديم ويحدث الجديد فقط
     cachedSovereignData = { ...cachedSovereignData, ...data };
 
     return NextResponse.json({ 
       success: true, 
-      message: "T9-CORE-02: 16 Sovereign Shields Activated",
+      message: "T9-CORE-02: 21 Sovereign Shields Fully Activated",
       received_fields: Object.keys(data)
     }, { status: 200 });
 
