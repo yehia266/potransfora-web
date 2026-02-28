@@ -6,11 +6,11 @@ export default function SovereignMaster() {
   const CONFIG = {
     bg: "#FFFFFF ",
     logo: "POTRANSFORA",
-    hero: "POTRANSFORA",
+    hero: "EMPIRE",
     logoCol: "#05070a",
-    heroCol: "white",
-    quote: "Where Technology Meets Sovereignty: Crafting the DNA of the Digital Empire.",
-    quoteCol: "rgba(255,255,255,0.6)",
+    heroCol: "#05070a",
+    quote: "STABLISHING DIGITAL DOMINANCE",
+    quoteCol: "rgba(0,0,0,0.5)",
     blur: "20",
     copy: "© 2026 POTRANSFORA. All Rights Reserved",
     ver: "v14.2.3 Stable"
