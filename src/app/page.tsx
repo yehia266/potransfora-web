@@ -23,7 +23,7 @@ export default function SovereignMaster() {
 
       <header className="fixed top-0 w-full z-50 p-6 flex justify-between items-center border-b border-white/5 backdrop-blur-xl">
         <div className="flex items-center gap-4">
-          <div className="text-xl font-black italic tracking-tighter uppercase font-serif underline decoration-white/10">POTRANSFORA</div>
+          <div className="text-xl font-black italic tracking-tighter uppercase font-serif underline decoration-white/10">POTRANSFORAAAAA</div>
           <div className="flex items-center gap-2 px-3 py-1 bg-white/5 rounded-full border border-white/10">
             <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
             <span className="text-[8px] uppercase tracking-[0.2em] opacity-60">Online</span>
@@ -42,7 +42,7 @@ export default function SovereignMaster() {
             className="text-[14vw] italic tracking-tighter leading-none"
             style={{ fontWeight: "900", fontFamily: "Playfair Display" }}
           >
-            POTRANSFORA
+            POTRANSFORAAAAA
           </motion.h1>
           <motion.p initial={{ opacity: 0 }} animate={{ opacity: 0.6 }} className="mt-6 text-xs md:text-sm tracking-[0.6em] uppercase font-light max-w-2xl mx-auto leading-loose">
             "Sovereignty is not just about power, but about attention to detail and clarity of vision.”
