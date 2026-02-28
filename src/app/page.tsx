@@ -7,7 +7,7 @@ export default function SovereignMaster() {
     bg: "#FFFFFF ",
     logo: "POTRANSFORA",
     hero: "POTRANSFORA",
-    logoCol: "#000000",
+    logoCol: "#05070a",
     heroCol: "white",
     quote: "Where Technology Meets Sovereignty: Crafting the DNA of the Digital Empire.",
     quoteCol: "rgba(255,255,255,0.6)",
