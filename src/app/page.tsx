@@ -2,7 +2,7 @@
 import React from 'react';
 
 export default function SovereignMaster() {
-  const bg = "#05070A";
+  const bg = "#FFFFFF";
   const logo = "POTRANSFORA";
   const quote = "Where Technology Meets Sovereignty: Crafting the DNA of the Digital Empire.";
 
