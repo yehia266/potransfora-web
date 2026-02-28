@@ -25,6 +25,13 @@
     padding: 0;
     overflow-x: hidden;
   }
+
+  /* T9-CORE-02: إضافة الانسيابية لوسم العنوان الرئيسي
+     لضمان انتقال ناعم لوزن الخط عند التغيير من Notion
+  */
+  h1 {
+    transition: font-weight 0.5s ease, color 0.5s ease;
+  }
 }
 
 /* 🛡️ تأثيرات الزجاج السيادي (Glassmorphism) للهيدر */
@@ -42,14 +49,20 @@
   mix-blend-mode: screen; /* لجعل خلفية الأنيميشن شفافة تماماً مع الموقع */
 }
 
-/* 🛡️ تخصيص شريط التمرير (Scrollbar) ليكون غير مرئي أو أنيق */
+/* 🛡️ تخصيص شريط التمرير ليتناسب مع فخامة الإمبراطورية */
 ::-webkit-scrollbar {
-  width: 3px;
+  width: 5px;
 }
+
 ::-webkit-scrollbar-track {
-  background: transparent;
+  background: #000;
 }
+
 ::-webkit-scrollbar-thumb {
-  background: rgba(255, 255, 255, 0.1);
+  background: #1e293b;
   border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #334155;
 }
