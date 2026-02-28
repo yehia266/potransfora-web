@@ -2,30 +2,25 @@
 import React from 'react';
 
 export default function SovereignMaster() {
-  const bg = "#FFFFFF";
-  const logo = "POTRANSFORA";
-  const quote = "Where Technology Meets Sovereignty: Crafting the DNA of the Digital Empire.";
+  const bgColor = "#FFFFFF";
+  
+  // استدعاء الألوان المستقلة من Notion
+  const logoColor = "white";
+  const titleColor = "white";
+  const quoteColor = "rgba(255,255,255,0.6)";
+  const footerCopyColor = "rgba(255,255,255,0.4)";
+  const footerVersionColor = "rgba(255,255,255,0.4)";
 
   return (
     <div style={{
-      backgroundColor: bg,
-      color: 'white',
+      backgroundColor: bgColor,
       minHeight: '100vh',
-      margin: 0,
       display: 'flex',
       flexDirection: 'column',
       fontFamily: "'Playfair Display', serif",
       position: 'relative',
       overflow: 'hidden'
     }}>
-      {/* خلفية فخمة (Gradients) محقونة مباشرة */}
-      <div style={{
-        position: 'absolute',
-        inset: 0,
-        background: 'radial-gradient(circle at 50% -20%, #1e293b 0%, transparent 80%)',
-        zIndex: 0
-      }} />
-
       <header style={{
         position: 'fixed',
         top: 0,
@@ -34,12 +29,15 @@ export default function SovereignMaster() {
         display: 'flex',
         justifyContent: 'space-between',
         alignItems: 'center',
-        borderBottom: '1px solid rgba(255,255,255,0.05)',
-        backdropFilter: 'blur(20px)',
         zIndex: 50
       }}>
-        <div style={{ fontSize: '24px', fontWeight: '900', letterSpacing: '0.2em', fontStyle: 'italic' }}>{logo}</div>
-        <div style={{ fontSize: '10px', letterSpacing: '0.3em', opacity: 0.6 }}>{("Online").toUpperCase()}</div>
+        <div style={{ 
+          fontSize: '24px', 
+          fontWeight: '900', 
+          letterSpacing: '0.2em', 
+          fontStyle: 'italic',
+          color: logoColor 
+        }}>POTRANSFORA</div>
       </header>
 
       <main style={{
@@ -48,8 +46,7 @@ export default function SovereignMaster() {
         flexDirection: 'column',
         alignItems: 'center',
         justifyContent: 'center',
-        zIndex: 10,
-        padding: '0 20px'
+        zIndex: 10
       }}>
         <h1 style={{
           fontSize: '12vw',
@@ -57,18 +54,20 @@ export default function SovereignMaster() {
           fontStyle: 'italic',
           margin: 0,
           lineHeight: 0.9,
-          letterSpacing: '-0.02em'
-        }}>{logo}</h1>
+          color: titleColor
+        }}>POTRANSFORA</h1>
+        
         <p style={{
           marginTop: '40px',
           fontSize: '14px',
           letterSpacing: '0.6em',
-          opacity: 0.4,
           maxWidth: '600px',
-          lineHeight: 2,
-          borderTop: '1px solid rgba(255,255,255,0.1)',
-          paddingTop: '30px'
-        }}>{quote}</p>
+          textAlign: 'center',
+          color: quoteColor,
+          borderTop: `1px solid ${quoteColor}`,
+          paddingTop: '30px',
+          opacity: 0.8
+        }}>Where Technology Meets Sovereignty: Crafting the DNA of the Digital Empire.</p>
       </main>
 
       <footer style={{
@@ -78,11 +77,14 @@ export default function SovereignMaster() {
         justifyContent: 'space-between',
         fontSize: '9px',
         letterSpacing: '0.3em',
-        opacity: 0.3,
         zIndex: 10
       }}>
-        <div>© 2026 POTRANSFORA. All Rights Reserved</div>
-        <div>v14.4.1 | SECURE GLOBAL GATEWAY</div>
+        <div style={{ color: footerCopyColor }}>
+          © 2026 POTRANSFORA. All Rights Reserved
+        </div>
+        <div style={{ color: footerVersionColor }}>
+          v14.2.3 Stable | SECURE GLOBAL GATEWAY
+        </div>
       </footer>
     </div>
   );
