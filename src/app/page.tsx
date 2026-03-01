@@ -5,9 +5,7 @@ export default function SovereignMaster() {
   const [isOpen, setIsOpen] = useState(false);
 
   useEffect(() => {
-    if (true) {
-      setIsOpen(true);
-    }
+    if (true) { setIsOpen(true); }
   }, []);
 
   return (
@@ -20,20 +18,18 @@ export default function SovereignMaster() {
       position: 'relative',
       overflowX: 'hidden'
     }}>
+      {/* حقن الـ CSS مباشرة لضمان الأنيميشن */}
       <style>{`
         @keyframes flow {
           0% { transform: translate(-10%, -10%) scale(1); }
-          50% { transform: translate(10%, 15%) scale(1.1); }
+          50% { transform: translate(10%, 15%) scale(1.2); }
           100% { transform: translate(-10%, -10%) scale(1); }
         }
-        @keyframes fadeIn {
-          from { opacity: 0; transform: scale(0.95); }
-          to { opacity: 1; transform: scale(1); }
+        .moving-blob {
+          animation: flow 8s infinite ease-in-out;
         }
-        .animate-flow { animation: flow 10s infinite ease-in-out; }
       `}</style>
 
-      {/* Sovereign Modal */}
       {isOpen && (
         <div style={{
           position: 'fixed',
@@ -43,20 +39,18 @@ export default function SovereignMaster() {
           alignItems: 'center',
           justifyContent: 'center',
           zIndex: 9999,
-          backdropFilter: 'blur(10px)',
-          padding: '20px'
+          backdropFilter: 'blur(10px)'
         }}>
           <div style={{
             width: '100%',
-            maxWidth: '440px',
+            maxWidth: '420px',
             backgroundColor: 'white',
             borderRadius: '32px',
             overflow: 'hidden',
-            boxShadow: '0 25px 50px -12px rgba(0,0,0,0.5)',
-            animation: 'fadeIn 0.5s ease-out'
+            boxShadow: '0 25px 50px rgba(0,0,0,0.3)'
           }}>
             <div style={{
-              height: '200px',
+              height: '180px',
               background: '#f1f5f9',
               position: 'relative',
               overflow: 'hidden',
@@ -64,20 +58,25 @@ export default function SovereignMaster() {
               alignItems: 'center',
               justifyContent: 'center'
             }}>
-              <div className="animate-flow" style={{
+              {/* الكرة المتحركة */}
+              <div className="moving-blob" style={{
                 position: 'absolute',
-                width: '200px',
-                height: '200px',
+                width: '220px',
+                height: '220px',
                 background: 'radial-gradient(circle, #6366f1, #a855f7)',
                 borderRadius: '50%',
-                filter: 'blur(40px)',
+                filter: 'blur(45px)',
                 opacity: 0.6
               }}></div>
               <div style={{ zIndex: 1, fontSize: '60px' }}>🛡️</div>
             </div>
-            <div style={{ padding: '40px', textAlign: 'center' }}>
-              <h2 style={{ fontSize: '24px', fontWeight: '800', color: '#0f172a', marginBottom: '16px' }}>${"Potransfora Sovereignty"}</h2>
-              <p style={{ fontSize: '15px', color: '#64748b', lineHeight: 1.6, marginBottom: '32px' }}>${"Step into the future of digital dominance."}</p>
+            <div style={{ padding: '35px', textAlign: 'center' }}>
+              <h2 style={{ fontSize: '22px', fontWeight: '800', color: '#0f172a', marginBottom: '12px' }}>
+                Potransfora Sovereignty
+              </h2>
+              <p style={{ fontSize: '14px', color: '#64748b', lineHeight: 1.6, marginBottom: '28px' }}>
+                Step into the future of digital dominance.
+              </p>
               <button 
                 onClick={() => setIsOpen(false)}
                 style={{
@@ -95,43 +94,14 @@ export default function SovereignMaster() {
         </div>
       )}
 
-      {/* Page Content */}
-      <header style={{
-        position: 'sticky',
-        top: 0,
-        width: '100%',
-        padding: '20px 40px',
-        display: 'flex',
-        justifyContent: 'space-between',
-        zIndex: 100,
-        backgroundColor: 'rgba(255,255,255,0.8)',
-        backdropFilter: 'blur(20)'
-      }}>
+      {/* Header & Main Section */}
+      <header style={{ padding: '20px 40px', position: 'sticky', top: 0, zIndex: 100, backgroundColor: 'rgba(255,255,255,0.8)', backdropFilter: 'blur(20)' }}>
         <div style={{ fontSize: '18px', fontWeight: '900', color: "#05070a", letterSpacing: '0.1em' }}>POTRANSFORA</div>
       </header>
 
-      <main style={{
-        flexGrow: 1,
-        display: 'flex',
-        flexDirection: 'column',
-        alignItems: 'center',
-        justifyContent: 'center',
-        padding: '40px 20px',
-        textAlign: 'center'
-      }}>
-        <h1 style={{
-          fontSize: 'clamp(40px, 15vw, 180px)', // خط مرن يمنع التداخل
-          fontWeight: '900',
-          fontStyle: 'italic',
-          lineHeight: 0.9,
-          color: "#05070a",
-          margin: '0 0 20px 0'
-        }}>EMPIRE</h1>
+      <main style={{ flexGrow: 1, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', padding: '40px' }}>
+        <h1 style={{ fontSize: 'clamp(40px, 12vw, 150px)', fontWeight: '900', fontStyle: 'italic', color: "#05070a", textAlign: 'center' }}>EMPIRE</h1>
       </main>
-
-      <footer style={{ padding: '20px 40px', fontSize: '10px', opacity: 0.5 }}>
-        v14.2.3 Stable | FLUID DOMINANCE
-      </footer>
     </div>
   );
 }
