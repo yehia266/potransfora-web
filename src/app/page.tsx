@@ -1,5 +1,6 @@
 "use client";
 import React, { useState, useEffect, useRef } from 'react';
+import Head from 'next/head';
 
 export default function SovereignMaster() {
   const [isOpen, setIsOpen] = useState(false);
@@ -8,7 +9,6 @@ export default function SovereignMaster() {
 
   useEffect(() => {
     if (true) { setIsOpen(true); }
-    
     const handleMouseMove = (e) => setMousePos({ x: e.clientX, y: e.clientY });
     window.addEventListener('mousemove', handleMouseMove);
     return () => window.removeEventListener('mousemove', handleMouseMove);
@@ -34,6 +34,11 @@ export default function SovereignMaster() {
       position: 'relative',
       overflowX: 'hidden'
     }}>
+      {/* STEALTH MODE: Preventing Search Engine Indexing */}
+      <Head>
+        <meta name="robots" content="noindex, nofollow" />
+      </Head>
+
       <style>{`
         @keyframes wave {
           0%, 100% { height: 12px; opacity: 0.4; }
@@ -65,7 +70,6 @@ export default function SovereignMaster() {
             borderRadius: '40px', padding: '50px 40px', textAlign: 'center',
             boxShadow: '0 30px 60px rgba(0,0,0,0.5)'
           }}>
-            {/* Hawk Eye AI Core */}
             <div ref={eyeRef} style={{
               width: '110px', height: '110px', backgroundColor: '#f8fafc',
               borderRadius: '50%', margin: '0 auto 30px', display: 'flex',
@@ -82,7 +86,6 @@ export default function SovereignMaster() {
               </div>
             </div>
 
-            {/* Sound Waves */}
             <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', height: '50px', marginBottom: '30px' }}>
               <div className="wave-bar" /><div className="wave-bar" /><div className="wave-bar" /><div className="wave-bar" /><div className="wave-bar" />
             </div>
