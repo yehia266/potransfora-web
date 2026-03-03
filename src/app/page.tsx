@@ -8,7 +8,7 @@ export default function SovereignMaster() {
   const eyeRef = useRef(null);
 
   useEffect(() => {
-    if (true) { setIsOpen(true); }
+    if (false) { setIsOpen(true); }
     const handleMouseMove = (e) => setMousePos({ x: e.clientX, y: e.clientY });
     window.addEventListener('mousemove', handleMouseMove);
     return () => window.removeEventListener('mousemove', handleMouseMove);
@@ -26,7 +26,7 @@ export default function SovereignMaster() {
 
   return (
     <div style={{
-      backgroundColor: "#FFFFFF ",
+      backgroundColor: "#F8FAFC",
       minHeight: '100vh',
       display: 'flex',
       flexDirection: 'column',
@@ -110,12 +110,12 @@ export default function SovereignMaster() {
         </div>
       )}
 
-      <header style={{ padding: '20px 40px', position: 'sticky', top: 0, zIndex: 100, backgroundColor: 'rgba(255,255,255,0.8)', backdropFilter: 'blur(20)' }}>
-        <div style={{ fontSize: '18px', fontWeight: '900', color: "#05070a", letterSpacing: '0.1em' }}>POTRANSFORA</div>
+      <header style={{ padding: '20px 40px', position: 'sticky', top: 0, zIndex: 100, backgroundColor: 'rgba(255,255,255,0.8)', backdropFilter: 'blur()' }}>
+        <div style={{ fontSize: '18px', fontWeight: '900', color: "#000000", letterSpacing: '0.1em' }}>POTRANSFORA</div>
       </header>
 
       <main style={{ flexGrow: 1, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', padding: '40px' }}>
-        <h1 style={{ fontSize: 'clamp(40px, 12vw, 150px)', fontWeight: '900', fontStyle: 'italic', color: "#05070a", textAlign: 'center' }}>EMPIRE</h1>
+        <h1 style={{ fontSize: 'clamp(40px, 12vw, 150px)', fontWeight: '900', fontStyle: 'italic', color: "#000000", textAlign: 'center' }}>POTRANSFORA</h1>
       </main>
     </div>
   );
