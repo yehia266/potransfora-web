@@ -8,20 +8,19 @@ export default function Page() {
         <nav style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 24px', height: '70px', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
           <span style={{ fontSize: '26px', fontWeight: '900', background: 'linear-gradient(to right, #60a5fa, #34d399)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', letterSpacing: '-1px' }}>POTRANSFORA</span>
           
-          <div style={{ position: 'relative', cursor: 'pointer' }} className="group">
-            <div style={{ display: 'flex', alignItems: 'center', gap: '6px', color: '#9ca3af', fontWeight: '600' }}>
+          <div style={{ position: 'relative' }} className="group">
+            <div style={{ display: 'flex', alignItems: 'center', gap: '6px', color: '#9ca3af', fontWeight: '600', cursor: 'pointer' }}>
               Product <span style={{ fontSize: '10px' }}>▼</span>
             </div>
             
-            {/* القائمة المنسدلة الذكية */}
             <div style={{
               position: 'absolute', top: '100%', left: '-20px', width: '300px',
               backgroundColor: '#0d1117', border: '1px solid rgba(255,255,255,0.1)',
               borderRadius: '16px', padding: '20px', marginTop: '15px', boxShadow: '0 25px 50px -12px rgba(0,0,0,0.7)'
             }}>
-              <div style={{ fontSize: '11px', fontWeight: '800', color: '#4b5563', marginBottom: '15px', letterSpacing: '2px', textAlign: 'left' }}>NEW TOOL SYSTEM</div>
+              <div style={{ fontSize: '11px', fontWeight: '800', color: '#4b5563', marginBottom: '15px', letterSpacing: '2px' }}>NEW TOOL SYSTEM</div>
               <div style={{ display: 'flex', flexDirection: 'column' }}>
-                <div style="color:#4b5563; font-size:12px">No active tasks found in Notion</div>
+                <div style="color:#ef4444; font-size:12px">⚠️ No Matching "Child:New Tool" found</div>
               </div>
             </div>
           </div>
