@@ -1,24 +1,55 @@
 
+import React from 'react';
+
 export default function Page() {
   return (
-    <div className="min-h-screen bg-[#030712] text-white font-sans">
-      <header className="border-b border-white/10 bg-black/50 backdrop-blur-xl sticky top-0 z-50">
-        <nav className="max-w-7xl mx-auto px-4 h-16 flex items-center justify-between">
-          <span className="text-xl font-bold bg-gradient-to-r from-blue-400 to-emerald-400 bg-clip-text text-transparent">POTRANSFORA</span>
-          <div className="relative group">
-            <button className="text-gray-400 hover:text-white flex items-center space-x-1">
-              <span>Product</span>
+    <div style={{
+      backgroundColor: '#030712', color: '#ffffff', minHeight: '100vh',
+      fontFamily: 'sans-serif', margin: 0, padding: 0
+    }}>
+      {/* Header السيادي */}
+      <header style={{
+        borderBottom: '1px solid rgba(255,255,255,0.1)',
+        backgroundColor: 'rgba(0,0,0,0.5)', backdropFilter: 'blur(10px)',
+        position: 'sticky', top: 0, zIndex: 50
+      }}>
+        <nav style={{
+          maxWidth: '1200px', margin: '0 auto', padding: '0 20px',
+          height: '64px', display: 'flex', alignItems: 'center', justifyContent: 'space-between'
+        }}>
+          <span style={{
+            fontSize: '24px', fontWeight: 'bold',
+            background: 'linear-gradient(to right, #60a5fa, #10b981)',
+            WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent'
+          }}>POTRANSFORA</span>
+
+          <div style={{ position: 'relative', height: '100%', display: 'flex', alignItems: 'center' }} className="group">
+            <button style={{
+              background: 'none', border: 'none', color: '#9ca3af',
+              cursor: 'pointer', fontSize: '16px', display: 'flex', alignItems: 'center', gap: '4px'
+            }}>
+              Product <span style={{ fontSize: '12px' }}>▼</span>
             </button>
-            <div className="absolute top-full left-0 w-[300px] bg-[#0d1117] border border-white/10 rounded-xl hidden group-hover:block p-4 mt-2 shadow-2xl">
-                <div className="text-xs font-semibold text-gray-500 uppercase mb-3">New Tool</div>
+            
+            {/* Mega Menu - يظهر عند الحوم (بواسطة CSS مدمج) */}
+            <div style={{
+              position: 'absolute', top: '100%', left: 0, width: '280px',
+              backgroundColor: '#0d1117', border: '1px solid rgba(255,255,255,0.1)',
+              borderRadius: '12px', padding: '16px', marginTop: '8px', boxShadow: '0 20px 25px -5px rgba(0,0,0,0.5)'
+            }}>
+              <div style={{ fontSize: '11px', fontWeight: '600', color: '#6b7280', marginBottom: '12px', letterSpacing: '1px' }}>NEW TOOL</div>
+              <div style={{ display: 'flex', flexDirection: 'column' }}>
                 
+              </div>
             </div>
           </div>
         </nav>
       </header>
-      <main className="flex flex-col items-center justify-center py-40">
-        <h1 className="text-8xl font-black tracking-tighter italic mb-4">POTRANSFORA</h1>
-        <p className="text-blue-400 tracking-[0.5em] uppercase text-sm">Sovereign Identity Summoned</p>
+
+      {/* المحتوى المركزي */}
+      <main style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', paddingTop: '160px' }}>
+        <h1 style={{ fontSize: '72px', fontWeight: '900', margin: 0, fontStyle: 'italic', letterSpacing: '-2px' }}>POTRANSFORA</h1>
+        <p style={{ color: '#60a5fa', letterSpacing: '8px', fontSize: '14px', marginTop: '10px' }}>SOVEREIGN IDENTITY SUMMONED</p>
       </main>
     </div>
   );
