@@ -1,7 +1,40 @@
 import React from 'react';
 
 export default function Page() {
+// --- انسخي هذا الجزء وضعه في بداية الدالة ---
+  const [showModal, setShowModal] = useState(true);
+  const [eyeTransform, setEyeTransform] = useState({ x: 0, y: 0 });
+
+  const handleMouseMove = (e: React.MouseEvent) => {
+    const mouseX = e.clientX;
+    const mouseY = e.clientY;
+    const x = (mouseX - (typeof window !== 'undefined' ? window.innerWidth / 2 : 0)) / 40;
+    const y = (mouseY - (typeof window !== 'undefined' ? window.innerHeight / 2 : 0)) / 40;
+    setEyeTransform({ x, y });
+  };
+  // ------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
   return (
+    // ابحثي عن هذا السطر (أو ما يشبهه) وقومي بإضافة الجزء المظلل:
+<div 
+  style={styles.pageContainer} 
+  onMouseMove={handleMouseMove} // <-- أضيفي هذا الجزء هنا فقط
+>
+
+  
     <div className="min-h-screen bg-[#F8FAFC] font-sans flex flex-col">
       {/* IDENTITY_HEADER - المهمة الثانية */}
       <header className="fixed top-0 w-full z-50">
