@@ -3,33 +3,26 @@
 @tailwind utilities;
 
 :root {
-  --background: #05070A;
+  --background: #030712;
   --foreground: #ffffff;
 }
 
-@layer base {
-  html {
-    scroll-behavior: smooth;
-    -webkit-font-smoothing: antialiased;
-  }
-  body {
-    background-color: var(--background);
-    color: var(--foreground);
-    margin: 0;
-    padding: 0;
-    overflow-x: hidden;
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: 'Inter', sans-serif;
+  overflow-x: hidden;
+}
+
+@layer utilities {
+  .tracking-tightest {
+    letter-spacing: -0.05em;
   }
 }
 
-/* تأثير الزجاج المصنفر السيادي */
-.glass-header {
-  background: rgba(255, 255, 255, 0.03);
-  backdrop-filter: blur(var(--blur-level, 20px));
-  -webkit-backdrop-filter: blur(var(--blur-level, 20px));
-}
-
-/* تحسين اندماج الـ Lottie */
-.lottie-container {
-  mix-blend-mode: plus-lighter;
-  pointer-events: none;
+/* التطهير: إزالة أي تأثيرات قديمة لا تخدم الهوية الجديدة */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
