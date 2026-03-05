@@ -1,6 +1,6 @@
 "use client"; // ضروري لبقاء التفاعل (العين) يعمل
 import React, { useState } from 'react';
-import { PLASMIC } from "@/plasmic-init";
+import { PLASMIC } from "../plasmic-init";
 import { PlasmicComponent, PlasmicRootProvider } from "@plasmicapp/loader-nextjs";
 
 export default function Page() {
