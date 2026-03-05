@@ -2,11 +2,12 @@ import { PLASMIC } from "@/plasmic-init";
 import { PlasmicComponent } from "@plasmicapp/loader-nextjs";
 
 export default async function Page() {
-  const plasmicData = await PLASMIC.fetchComponentData("/");
+  // جلب البيانات من مشروع Plasmic
+  const plasmicData = await PLASMIC.fetchComponentData("Homepage");
   
   return (
     <main>
-      <PlasmicComponent component="/" />
+      <PlasmicComponent component="Homepage" />
     </main>
   );
 }
