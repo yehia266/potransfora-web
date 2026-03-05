@@ -3,8 +3,8 @@ import { initPlasmicLoader } from "@plasmicapp/loader-nextjs";
 export const PLASMIC = initPlasmicLoader({
   projects: [
     {
-      id: "7pwqU7haXFZF5jUGcLsJKT", // سيظهر لك في صفحة Quickstarts في Plasmic
-      token: "jPtmRTruvpcB4deLnP4lw0ZdxidwLygjUBwscHJiLGeFunoHjzMM79EkecmWfHi0RNyW60h7Ive4rHmqlYXQ", // هذا هو الـ API Token الذي نسخته من الصورة
+      id: "7pwqU7haXFZF5jUGcLsJKT",
+      token: "jPtmRTruvpcB4deLnP4Iw0ZdxidwLgjUBwscHJiLGeFunoHjz",
     },
   ],
   preview: true,

@@ -1,13 +1,6 @@
-import { PLASMIC } from "@/plasmic-init";
+import { PLASMIC } from "@/plasmic-init"; // هذا هو السطر الذي يربط الملف بالموقع
 import { PlasmicComponent } from "@plasmicapp/loader-nextjs";
 
 export default async function Page() {
-  // جلب البيانات من مشروع Plasmic
-  const plasmicData = await PLASMIC.fetchComponentData("Homepage");
-  
-  return (
-    <main>
-      <PlasmicComponent component="Homepage" />
-    </main>
-  );
+  return <PlasmicComponent component="Homepage" />;
 }
