@@ -10,8 +10,8 @@
   },
   "dependencies": {
     "next": "14.2.3",
-    "@plasmicapp/loader-nextjs": "1.0.316",
-    "@plasmicapp/react-web": "0.2.296",
+    "@plasmicapp/loader-nextjs": "latest",
+    "@plasmicapp/react-web": "latest",
     "react": "^18",
     "react-dom": "^18"
   }
