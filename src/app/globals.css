@@ -2,14 +2,13 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --background: #ffffff;
-  --foreground: #000000;
+body {
+  background-color: #F8FAFC;
+  color: #0F172A;
+  overflow-x: hidden;
 }
 
-body {
-  color: var(--foreground);
-  background: var(--background);
-  margin: 0;
-  padding: 0;
+@keyframes blink { 
+  0%, 90%, 100% { transform: scaleY(1); } 
+  95% { transform: scaleY(0.1); } 
 }
