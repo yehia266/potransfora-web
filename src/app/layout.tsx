@@ -1,5 +1,5 @@
 import { PlasmicRootProvider } from "@plasmicapp/loader-nextjs";
-import { PLASMIC } from "@/plasmic-init";
+import { PLASMIC } from "../../plasmic-init";
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
