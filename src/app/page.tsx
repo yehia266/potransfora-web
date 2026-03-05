@@ -1,9 +1,12 @@
-"use client";
+import { PLASMIC } from "@/plasmic-init";
+import { PlasmicComponent } from "@plasmicapp/loader-nextjs";
 
-export default function Page() {
+export default async function Page() {
+  const plasmicData = await PLASMIC.fetchComponentData("/");
+  
   return (
-    <main style={{ minHeight: "100vh", backgroundColor: "#FFFFFF" }}>
-      {/* تم تطهير الصفحة - جاهزة لاستقبال بروتوكول Plasmic */}
+    <main>
+      <PlasmicComponent component="/" />
     </main>
   );
 }
