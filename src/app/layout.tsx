@@ -1,23 +1,13 @@
-import type { Metadata } from "next";
-import { Inter } from "next/font/google";
-import "./globals.css";
+import { PlasmicRootProvider } from "@plasmicapp/loader-nextjs";
+import { PLASMIC } from "@/plasmic-init";
 
-const inter = Inter({ subsets: ["latin"] });
-
-export const metadata: Metadata = {
-  title: "POTRANSFORA | Sovereign Core",
-  description: "System Cleaned and Ready for Deployment",
-};
-
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
-      <body className={inter.className}>
-        {children}
+      <body>
+        <PlasmicRootProvider loader={PLASMIC}>
+          {children}
+        </PlasmicRootProvider>
       </body>
     </html>
   );
