@@ -12,6 +12,10 @@ const config: Config = {
       },
       colors: {
         foundation: '#F8FAFC',
+        // ألوان نوتشن التي أضفتها لك الآن:
+        notionBg: '#F7F6F3',
+        notionText: '#37352F',
+        notionBorder: 'rgba(15, 15, 15, 0.1)',
       }
     },
   },
