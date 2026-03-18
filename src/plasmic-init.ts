@@ -1,6 +1,5 @@
 import { initPlasmicLoader } from "@plasmicapp/loader-nextjs";
-// الاستيراد بدون أقواس لأنه أصبح Default Export في EyeModal.tsx
-import EyeModal from "./components/EyeModal"; 
+import dynamic from 'next/dynamic';
 
 export const PLASMIC = initPlasmicLoader({
   projects: [
@@ -12,12 +11,15 @@ export const PLASMIC = initPlasmicLoader({
   preview: true,
 });
 
-// التسجيل بوضع "المانيوال" لضمان اختفاء الـ TypeError وظهور المكون في البحث
+// الحل "خارج الصندوق": تحميل المكون ديناميكياً لتعطيل الـ SSR (Server Side Rendering)
+// هذا يمنع خطأ "d is not a function" ويجعل المكون يظهر في الاستوديو
+const EyeModal = dynamic(() => import("./components/EyeModal"), { ssr: false });
+
 PLASMIC.registerComponent(EyeModal, {
   name: "EyeModal",
-  // المسار المانيوال لضمان أن Plasmic Studio يرى الكود بوضوح
+  // المانيوال المذكور في الرابط لضمان المسار
   importPath: "./components/EyeModal", 
-  isAttachment: false, 
+  isAttachment: false,
   props: {
     title: "string",
     description: "string",
