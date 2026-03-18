@@ -1,23 +1,7 @@
-import { initPlasmicLoader } from "@plasmicapp/loader-nextjs";
-// التعديل هنا: استخدام @ لضمان الوصول للمجلد من أي مكان في المشروع
-import { EyeModal } from "@/components/EyeModal"; 
+import * as React from 'react';
+import { PlasmicCanvasHost } from '@plasmicapp/loader-nextjs';
+import { PLASMIC } from '@/plasmic-init'; // استدعاء ملف الإعدادات فقط
 
-export const PLASMIC = initPlasmicLoader({
-  projects: [
-    {
-      id: "k7tGuJznBEQcX8ySStbZUu",
-      token: "YESOdQOKFw7rt7VUwVMX4y27akAxU5iNWNdFdir3uzOKo5BqJXCtseaLJ2mqZTZ1oyPnpPIWDX9qJYuizA",
-    },
-  ],
-  preview: true,
-});
-
-// تسجيل المكون بالأسم الصحيح للبحث
-PLASMIC.registerComponent(EyeModal, {
-  name: "EyeModal",
-  props: {
-    title: "string",
-    description: "string",
-    className: "string"
-  },
-});
+export default function PlasmicHost() {
+  return PLASMIC && <PlasmicCanvasHost />;
+}
