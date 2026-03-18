@@ -11,15 +11,17 @@ export const PLASMIC = initPlasmicLoader({
   preview: true,
 });
 
-// الحل "خارج الصندوق": تحميل المكون ديناميكياً لتعطيل الـ SSR (Server Side Rendering)
-// هذا يمنع خطأ "d is not a function" ويجعل المكون يظهر في الاستوديو
-const EyeModal = dynamic(() => import("./components/EyeModal"), { ssr: false });
+// استيراد المكون ديناميكياً وتعطيل الـ SSR لمنع خطأ "d is not a function"
+const EyeModal = dynamic(() => import("./components/EyeModal"), { 
+  ssr: false,
+  loading: () => null // اختياري: لا تظهر شيئاً أثناء التحميل
+});
 
+// التسجيل بالوضع "المانيوال" لضمان الظهور في الاستوديو
 PLASMIC.registerComponent(EyeModal, {
   name: "EyeModal",
-  // المانيوال المذكور في الرابط لضمان المسار
   importPath: "./components/EyeModal", 
-  isAttachment: false,
+  isAttachment: false, 
   props: {
     title: "string",
     description: "string",
