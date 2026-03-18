@@ -1,6 +1,5 @@
 import { initPlasmicLoader } from "@plasmicapp/loader-nextjs";
-// استخدام المسار المطلق لضمان عدم حدوث تعارض في الـ Build
-import { EyeModal } from "@/components/EyeModal"; 
+import { EyeModal } from "./components/EyeModal"; // المسار التقليدي المضمون لمشروعك
 
 export const PLASMIC = initPlasmicLoader({
   projects: [
@@ -12,16 +11,15 @@ export const PLASMIC = initPlasmicLoader({
   preview: true,
 });
 
-// تسجيل المكون مع الإعدادات اليدوية (Manual) لضمان ظهوره في البحث
+// تسجيل المكون مع دمج إعدادات الظهور اليدوي (Manual) والمسار التقليدي
 PLASMIC.registerComponent(EyeModal, {
   name: "EyeModal",
-  // إضافة مسار الاستيراد يدوياً كمرجع إضافي لـ Plasmic
-  importPath: "@/components/EyeModal", 
-  // التأكد من أن المكون متاح كعنصر مستقل وليس ملحقاً
+  // نستخدم المسار النسبي هنا أيضاً ليتوافق مع الـ Build
+  importPath: "./components/EyeModal", 
   isAttachment: false, 
   props: {
     title: "string",
     description: "string",
-    className: "string",
+    className: "string"
   },
 });
