@@ -1,14 +1,32 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
-export function EyeModal({ className }: { className?: string }) {
+// تعريف الـ Props ليتعرف عليها Plasmic
+export interface EyeModalProps {
+  className?: string;
+  title?: string;
+  description?: string;
+}
+
+export function EyeModal({ 
+  className, 
+  title = "System Verification", 
+  description = "Unlock the workspace of the future with our top-rated curated resources." 
+}: EyeModalProps) {
   const [showModal, setShowModal] = useState(true);
   const [eyeTransform, setEyeTransform] = useState({ x: 0, y: 0 });
 
-  const handleMouseMove = (e: React.MouseEvent) => {
+  // معالجة حركة العين
+  const handleMouseMove = (e: MouseEvent) => {
     const x = (e.clientX - window.innerWidth / 2) / 45;
     const y = (e.clientY - window.innerHeight / 2) / 45;
     setEyeTransform({ x, y });
   };
+
+  // إضافة مستمع الحركة عند تحميل المكون فقط
+  useEffect(() => {
+    window.addEventListener("mousemove", handleMouseMove);
+    return () => window.removeEventListener("mousemove", handleMouseMove);
+  }, []);
 
   const handleAffiliateClick = (offerId: string) => {
     const affiliateLinks: Record<string, string> = {
@@ -21,10 +39,10 @@ export function EyeModal({ className }: { className?: string }) {
   if (!showModal) return null;
 
   return (
-    <div className={className} style={styles.modalOverlay} onMouseMove={handleMouseMove}>
+    <div className={className} style={styles.modalOverlay}>
       <div style={styles.modalContent}>
         
-        {/* المكونات العلوية بأسلوب Notion */}
+        {/* شريط الأدوات العلوي */}
         <div style={styles.topBar}>
           <div style={styles.dots}>
             <span style={{...styles.dot, backgroundColor: "#FF605C"}}></span>
@@ -34,7 +52,7 @@ export function EyeModal({ className }: { className?: string }) {
         </div>
 
         <div style={styles.innerContent}>
-          {/* تصميم العين - Minimalist Notion Style */}
+          {/* تصميم العين */}
           <div style={styles.eyeContainer}>
             <div style={styles.eyeWhite}>
               <div
@@ -48,12 +66,10 @@ export function EyeModal({ className }: { className?: string }) {
             </div>
           </div>
 
-          <h2 style={styles.title}>System Verification</h2>
-          <p style={styles.description}>
-            Unlock the workspace of the future with our top-rated curated resources.
-          </p>
+          <h2 style={styles.title}>{title}</h2>
+          <p style={styles.description}>{description}</p>
 
-          {/* صناديق الأفلييت - Notion Card Style */}
+          {/* كروت الأفلييت */}
           <div style={styles.affiliateSection}>
             <div style={styles.notionCard} onClick={() => handleAffiliateClick('tool1')}>
               <div style={styles.cardIcon}>📘</div>
@@ -86,55 +102,47 @@ export function EyeModal({ className }: { className?: string }) {
 const styles: Record<string, React.CSSProperties> = {
   modalOverlay: {
     position: "fixed", inset: 0, zIndex: 9999,
-    backgroundColor: "rgba(15, 15, 15, 0.05)", // شفافية خفيفة جداً مثل Notion
+    backgroundColor: "rgba(15, 15, 15, 0.4)", // زدت الشفافية قليلاً ليظهر التأثير
     backdropFilter: "blur(8px)",
     display: "flex", alignItems: "center", justifyContent: "center"
   },
   modalContent: {
-    position: "relative", width: "90%", maxWidth: "420px",
+    position: "relative", width: "90%", maxWidth: "400px",
     backgroundColor: "#FFFFFF",
-    borderRadius: "12px", // زوايا Notion المميزة
-    boxShadow: "0 1px 3px rgba(15, 15, 15, 0.1), 0 10px 20px rgba(15, 15, 15, 0.05)",
-    border: "1px solid rgba(15, 15, 15, 0.1)",
-    overflow: "hidden", textAlign: "left"
+    borderRadius: "10px",
+    boxShadow: "0 10px 30px rgba(0,0,0,0.1)",
+    border: "1px solid #e0e0e0",
+    overflow: "hidden"
   },
-  topBar: { padding: "12px 16px", borderBottom: "1px solid #efefef", display: "flex", alignItems: "center" },
+  topBar: { padding: "12px 16px", borderBottom: "1px solid #f0f0f0", display: "flex" },
   dots: { display: "flex", gap: "6px" },
   dot: { width: "10px", height: "10px", borderRadius: "50%" },
-  innerContent: { padding: "30px" },
-  
-  // العين بستايل نوتشن (أبيض وأسود)
-  eyeContainer: { position: "relative", width: "80px", height: "80px", margin: "0 auto 20px" },
+  innerContent: { padding: "24px", textAlign: "center" },
+  eyeContainer: { width: "80px", height: "50px", margin: "0 auto 20px", display: "flex", justifyContent: "center" },
   eyeWhite: { 
-    width: "70px", height: "45px", backgroundColor: "#fff", 
-    borderRadius: "100%", border: "2px solid #37352f", 
+    width: "70px", height: "40px", backgroundColor: "#fff", 
+    borderRadius: "100%", border: "2.5px solid #37352f", 
     display: "flex", alignItems: "center", justifyContent: "center", overflow: "hidden" 
   },
-  eyeIris: { width: "22px", height: "22px", backgroundColor: "#37352f", borderRadius: "50%" },
-  eyePupil: { width: "8px", height: "8px", backgroundColor: "#fff", borderRadius: "50%", marginTop: "-4px", marginLeft: "-4px" },
-
-  title: { fontSize: "20px", color: "#37352f", fontWeight: 700, marginBottom: "8px", textAlign: "center" },
-  description: { fontSize: "14px", color: "#6b6e70", marginBottom: "24px", textAlign: "center", lineHeight: "1.5" },
-
-  // كروت الأفلييت بستايل نوتشن
+  eyeIris: { width: "20px", height: "20px", backgroundColor: "#37352f", borderRadius: "50%", transition: "transform 0.1s ease-out" },
+  eyePupil: { width: "6px", height: "6px", backgroundColor: "#fff", borderRadius: "50%", position: "absolute", top: "4px", left: "4px" },
+  title: { fontSize: "18px", color: "#37352f", fontWeight: 700, margin: "0 0 8px" },
+  description: { fontSize: "14px", color: "#666", marginBottom: "24px", lineHeight: "1.4" },
   affiliateSection: { display: "grid", gap: "10px", marginBottom: "20px" },
   notionCard: {
     display: "flex", alignItems: "center", padding: "12px",
     borderRadius: "8px", border: "1px solid #efefef",
-    cursor: "pointer", transition: "background 0.2s ease",
-    gap: "12px"
+    cursor: "pointer", transition: "background 0.2s", gap: "12px", textAlign: "left"
   },
-  cardIcon: { fontSize: "24px" },
+  cardIcon: { fontSize: "20px" },
   cardInfo: { flex: 1 },
   cardTitle: { fontSize: "14px", fontWeight: 600, color: "#37352f", margin: 0 },
-  cardText: { fontSize: "12px", color: "#737373", margin: 0 },
-  arrow: { color: "#dfdfde", fontSize: "18px" },
-
+  cardText: { fontSize: "12px", color: "#888", margin: 0 },
+  arrow: { color: "#ccc" },
   notionButton: {
     width: "100%", padding: "10px",
     backgroundColor: "#37352f", color: "#fff",
     borderRadius: "6px", border: "none",
-    fontSize: "14px", fontWeight: 500,
-    cursor: "pointer", transition: "opacity 0.2s"
+    fontSize: "14px", fontWeight: 600, cursor: "pointer"
   }
 };
