@@ -1,5 +1,6 @@
 import { initPlasmicLoader } from "@plasmicapp/loader-nextjs";
-import { EyeModal } from "./components/EyeModal";
+// التعديل هنا: استخدام @ لضمان الوصول للمجلد من أي مكان في المشروع
+import { EyeModal } from "@/components/EyeModal"; 
 
 export const PLASMIC = initPlasmicLoader({
   projects: [
