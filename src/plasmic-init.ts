@@ -1,5 +1,6 @@
 import { initPlasmicLoader } from "@plasmicapp/loader-nextjs";
-import { EyeModal } from "./components/EyeModal"; // المسار التقليدي المضمون لمشروعك
+// الاستيراد بدون أقواس لأنه أصبح Default Export في EyeModal.tsx
+import EyeModal from "./components/EyeModal"; 
 
 export const PLASMIC = initPlasmicLoader({
   projects: [
@@ -11,10 +12,10 @@ export const PLASMIC = initPlasmicLoader({
   preview: true,
 });
 
-// تسجيل المكون مع دمج إعدادات الظهور اليدوي (Manual) والمسار التقليدي
+// التسجيل بوضع "المانيوال" لضمان اختفاء الـ TypeError وظهور المكون في البحث
 PLASMIC.registerComponent(EyeModal, {
   name: "EyeModal",
-  // نستخدم المسار النسبي هنا أيضاً ليتوافق مع الـ Build
+  // المسار المانيوال لضمان أن Plasmic Studio يرى الكود بوضوح
   importPath: "./components/EyeModal", 
   isAttachment: false, 
   props: {
