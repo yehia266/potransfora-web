@@ -1,3 +1,4 @@
+"use client"; // ضروري جداً لأننا نستخدم useState و useEffect في Next.js
 import React, { useState, useEffect } from "react";
 
 // تعريف الـ Props ليتعرف عليها Plasmic
