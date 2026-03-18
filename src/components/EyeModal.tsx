@@ -1,7 +1,8 @@
 "use client"; // ضروري جداً لأننا نستخدم useState و useEffect في Next.js
+
 import React, { useState, useEffect } from "react";
 
-// تعريف الـ Props ليتعرف عليها Plasmic
+// تعريف الـ Props ليتعرف عليها Plasmic بوضوح
 export interface EyeModalProps {
   className?: string;
   title?: string;
@@ -17,14 +18,13 @@ export function EyeModal({
   const [eyeTransform, setEyeTransform] = useState({ x: 0, y: 0 });
 
   // معالجة حركة العين
-  const handleMouseMove = (e: MouseEvent) => {
-    const x = (e.clientX - window.innerWidth / 2) / 45;
-    const y = (e.clientY - window.innerHeight / 2) / 45;
-    setEyeTransform({ x, y });
-  };
-
-  // إضافة مستمع الحركة عند تحميل المكون فقط
   useEffect(() => {
+    const handleMouseMove = (e: MouseEvent) => {
+      const x = (e.clientX - window.innerWidth / 2) / 45;
+      const y = (e.clientY - window.innerHeight / 2) / 45;
+      setEyeTransform({ x, y });
+    };
+
     window.addEventListener("mousemove", handleMouseMove);
     return () => window.removeEventListener("mousemove", handleMouseMove);
   }, []);
@@ -43,7 +43,7 @@ export function EyeModal({
     <div className={className} style={styles.modalOverlay}>
       <div style={styles.modalContent}>
         
-        {/* شريط الأدوات العلوي */}
+        {/* شريط الأدوات العلوي بأسلوب Mac/Notion */}
         <div style={styles.topBar}>
           <div style={styles.dots}>
             <span style={{...styles.dot, backgroundColor: "#FF605C"}}></span>
@@ -53,7 +53,7 @@ export function EyeModal({
         </div>
 
         <div style={styles.innerContent}>
-          {/* تصميم العين */}
+          {/* تصميم العين التفاعلية */}
           <div style={styles.eyeContainer}>
             <div style={styles.eyeWhite}>
               <div
@@ -70,7 +70,7 @@ export function EyeModal({
           <h2 style={styles.title}>{title}</h2>
           <p style={styles.description}>{description}</p>
 
-          {/* كروت الأفلييت */}
+          {/* صناديق الأفلييت بستايل Notion المميز */}
           <div style={styles.affiliateSection}>
             <div style={styles.notionCard} onClick={() => handleAffiliateClick('tool1')}>
               <div style={styles.cardIcon}>📘</div>
@@ -103,7 +103,7 @@ export function EyeModal({
 const styles: Record<string, React.CSSProperties> = {
   modalOverlay: {
     position: "fixed", inset: 0, zIndex: 9999,
-    backgroundColor: "rgba(15, 15, 15, 0.4)", // زدت الشفافية قليلاً ليظهر التأثير
+    backgroundColor: "rgba(15, 15, 15, 0.4)",
     backdropFilter: "blur(8px)",
     display: "flex", alignItems: "center", justifyContent: "center"
   },
