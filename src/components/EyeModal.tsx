@@ -66,8 +66,26 @@ export default function EyeModal({
 }
 
 const styles: Record<string, React.CSSProperties> = {
-  modalOverlay: { position: "fixed", inset: 0, zIndex: 9999, backgroundColor: "rgba(15, 15, 15, 0.4)", backdropFilter: "blur(8px)", display: "flex", alignItems: "center", justifyContent: "center" },
-  modalContent: { position: "relative", width: "90%", maxWidth: "400px", backgroundColor: "#FFFFFF", borderRadius: "10px", boxShadow: "0 10px 30px rgba(0,0,0,0.1)", border: "1px solid #e0e0e0", overflow: "hidden" },
+  modalOverlay: { 
+    position: "fixed", 
+    inset: 0, 
+    zIndex: 1000000, 
+    backgroundColor: "rgba(15, 15, 15, 0.4)", 
+    backdropFilter: "blur(8px)", 
+    display: "flex", 
+    alignItems: "center", 
+    justifyContent: "center" 
+  },
+  modalContent: { 
+    position: "relative", 
+    width: "90%", 
+    maxWidth: "400px", 
+    backgroundColor: "#FFFFFF", 
+    borderRadius: "10px", 
+    boxShadow: "0 10px 30px rgba(0,0,0,0.1)", 
+    border: "1px solid #e0e0e0", 
+    overflow: "hidden" 
+  },
   topBar: { padding: "12px 16px", borderBottom: "1px solid #f0f0f0", display: "flex" },
   dots: { display: "flex", gap: "6px" },
   dot: { width: "10px", height: "10px", borderRadius: "50%" },
