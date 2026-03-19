@@ -11,13 +11,12 @@ export const PLASMIC = initPlasmicLoader({
   preview: true,
 });
 
-// استيراد المكون ديناميكياً وتعطيل الـ SSR لمنع خطأ "d is not a function"
-const EyeModal = dynamic(() => import("./components/EyeModal"), { 
+// التعديل السحري: نضمن استخراج الـ default مباشرة لمنع خطأ "d is not a function"
+const EyeModal = dynamic(() => import("./components/EyeModal").then(mod => mod.default), { 
   ssr: false,
-  loading: () => null // اختياري: لا تظهر شيئاً أثناء التحميل
+  loading: () => null 
 });
 
-// التسجيل بالوضع "المانيوال" لضمان الظهور في الاستوديو
 PLASMIC.registerComponent(EyeModal, {
   name: "EyeModal",
   importPath: "./components/EyeModal", 
