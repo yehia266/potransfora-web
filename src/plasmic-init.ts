@@ -14,7 +14,6 @@ export const PLASMIC = initPlasmicLoader({
 PLASMIC.registerComponent(EyeModal, {
   name: "EyeModal",
   importPath: "./components/EyeModal", 
-  isAttachment: false, 
   props: {
     title: {
       type: "string",
@@ -27,6 +26,11 @@ PLASMIC.registerComponent(EyeModal, {
     buttonText: {
       type: "string",
       defaultValue: "Continue to Workspace",
+    },
+    // إضافة إمكانية التحكم في العرض من Plasmic مباشرة
+    maxWidth: {
+      type: "number",
+      defaultValue: 400,
     },
     className: "string"
   },
