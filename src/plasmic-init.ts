@@ -1,4 +1,5 @@
 import { initPlasmicLoader } from "@plasmicapp/loader-nextjs";
+import EyeModal from "./components/EyeModal";
 
 export const PLASMIC = initPlasmicLoader({
   projects: [
@@ -10,16 +11,19 @@ export const PLASMIC = initPlasmicLoader({
   preview: true,
 });
 
-// تسجيل المكون مباشرة بدون dynamic import داخل الملف 
-// لأننا عالجنا المشكلة في صفحة الـ Host نفسها
-import EyeModal from "./components/EyeModal";
-
 PLASMIC.registerComponent(EyeModal, {
   name: "EyeModal",
   importPath: "./components/EyeModal", 
+  isAttachment: false, 
   props: {
-    title: "string",
-    description: "string",
+    title: {
+      type: "string",
+      defaultValue: "System Verification",
+    },
+    description: {
+      type: "string",
+      defaultValue: "Unlock the workspace of the future with our top-rated curated resources.",
+    },
     className: "string"
   },
 });
