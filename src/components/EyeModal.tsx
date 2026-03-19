@@ -8,7 +8,6 @@ export interface EyeModalProps {
   description?: string;
 }
 
-// التعديل الحاسم: استخدام default ليتوافق مع الـ dynamic import
 export default function EyeModal({ 
   className, 
   title = "System Verification", 
