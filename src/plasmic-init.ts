@@ -1,5 +1,4 @@
 import { initPlasmicLoader } from "@plasmicapp/loader-nextjs";
-import dynamic from 'next/dynamic';
 
 export const PLASMIC = initPlasmicLoader({
   projects: [
@@ -11,16 +10,13 @@ export const PLASMIC = initPlasmicLoader({
   preview: true,
 });
 
-// التعديل الحاسم: نستخدم .then(mod => mod.default) لضمان تمرير المكون كـ Function
-const EyeModal = dynamic(() => import("./components/EyeModal").then(mod => mod.default), { 
-  ssr: false,
-  loading: () => null 
-});
+// تسجيل المكون مباشرة بدون dynamic import داخل الملف 
+// لأننا عالجنا المشكلة في صفحة الـ Host نفسها
+import EyeModal from "./components/EyeModal";
 
 PLASMIC.registerComponent(EyeModal, {
   name: "EyeModal",
   importPath: "./components/EyeModal", 
-  isAttachment: false, 
   props: {
     title: "string",
     description: "string",
