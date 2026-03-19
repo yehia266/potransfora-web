@@ -11,7 +11,7 @@ export const PLASMIC = initPlasmicLoader({
   preview: true,
 });
 
-// التعديل السحري: نضمن استخراج الـ default مباشرة لمنع خطأ "d is not a function"
+// التعديل الحاسم: نستخدم .then(mod => mod.default) لضمان تمرير المكون كـ Function
 const EyeModal = dynamic(() => import("./components/EyeModal").then(mod => mod.default), { 
   ssr: false,
   loading: () => null 
