@@ -24,6 +24,10 @@ PLASMIC.registerComponent(EyeModal, {
       type: "string",
       defaultValue: "Unlock the workspace of the future with our top-rated curated resources.",
     },
+    buttonText: {
+      type: "string",
+      defaultValue: "Continue to Workspace",
+    },
     className: "string"
   },
 });
