@@ -6,12 +6,14 @@ export interface EyeModalProps {
   className?: string;
   title?: string;
   description?: string;
+  buttonText?: string; // إضافة خاصية نص الزر
 }
 
 export default function EyeModal({ 
   className, 
-  title = "System Verification", 
-  description = "Unlock the workspace of the future with our top-rated curated resources." 
+  title, 
+  description,
+  buttonText = "Continue to Workspace" 
 }: EyeModalProps) {
   const [showModal, setShowModal] = useState(true);
   const [eyeTransform, setEyeTransform] = useState({ x: 0, y: 0 });
@@ -57,7 +59,7 @@ export default function EyeModal({
           <p style={styles.description}>{description}</p>
 
           <button style={styles.notionButton} onClick={() => setShowModal(false)}>
-            Continue to Workspace
+            {buttonText} 
           </button>
         </div>
       </div>
@@ -74,15 +76,16 @@ const styles: Record<string, React.CSSProperties> = {
     backdropFilter: "blur(8px)", 
     display: "flex", 
     alignItems: "center", 
-    justifyContent: "center" 
+    justifyContent: "center",
+    padding: "20px" // حماية للموبايل لضمان عدم لمس الحواف
   },
   modalContent: { 
     position: "relative", 
-    width: "90%", 
+    width: "100%", // تغيير العرض ليكون مرناً
     maxWidth: "400px", 
     backgroundColor: "#FFFFFF", 
-    borderRadius: "10px", 
-    boxShadow: "0 10px 30px rgba(0,0,0,0.1)", 
+    borderRadius: "12px", 
+    boxShadow: "0 10px 30px rgba(0,0,0,0.15)", 
     border: "1px solid #e0e0e0", 
     overflow: "hidden" 
   },
@@ -94,7 +97,7 @@ const styles: Record<string, React.CSSProperties> = {
   eyeWhite: { width: "70px", height: "40px", backgroundColor: "#fff", borderRadius: "100%", border: "2.5px solid #37352f", display: "flex", alignItems: "center", justifyContent: "center", overflow: "hidden" },
   eyeIris: { width: "20px", height: "20px", backgroundColor: "#37352f", borderRadius: "50%", transition: "transform 0.1s ease-out" },
   eyePupil: { width: "6px", height: "6px", backgroundColor: "#fff", borderRadius: "50%", position: "absolute", top: "4px", left: "4px" },
-  title: { fontSize: "18px", color: "#37352f", fontWeight: 700, margin: "0 0 8px" },
-  description: { fontSize: "14px", color: "#666", marginBottom: "24px", lineHeight: "1.4" },
-  notionButton: { width: "100%", padding: "10px", backgroundColor: "#37352f", color: "#fff", borderRadius: "6px", border: "none", fontSize: "14px", fontWeight: 600, cursor: "pointer" }
+  title: { fontSize: "18px", color: "#37352f", fontWeight: 700, margin: "0 0 8px", fontFamily: "inherit" },
+  description: { fontSize: "14px", color: "#666", marginBottom: "24px", lineHeight: "1.5" },
+  notionButton: { width: "100%", padding: "12px", backgroundColor: "#37352f", color: "#fff", borderRadius: "6px", border: "none", fontSize: "14px", fontWeight: 600, cursor: "pointer", transition: "opacity 0.2s" }
 };
