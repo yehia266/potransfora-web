@@ -1,1 +1,59 @@
+/* --- 1. إعدادات الكمبيوتر (Desktop Styles) --- */
 
+/* الصف بالكامل (اللوجو + النصوص) */
+.menu-row-item {
+    display: flex !important;
+    align-items: center !important;
+    padding: 10px 16px !important;
+    border-radius: 10px !important; /* الـ 10px اللي اخترناها */
+    transition: all 0.3s ease-in-out !important; /* النعومة اللي ضبطناها */
+    cursor: pointer !important;
+    background-color: transparent !important;
+}
+
+/* تأثير اللمعة عند مرور الماوس */
+.menu-row-item:hover {
+    background-color: #f3f4f6 !important; /* رمادي فاتح جداً */
+}
+
+/* العنوان الرئيسي (مثلاً: Features) */
+.main-title {
+    font-size: 14px !important;
+    font-weight: 600 !important;
+    color: #1f2937 !important;
+    margin: 0 !important;
+}
+
+/* الوصف الفرعي (Exploration...) */
+.sub-description {
+    font-size: 12px !important;
+    color: #6b7280 !important;
+    line-height: 1.4 !important;
+}
+
+/* زر التريجر (Product) */
+.nav-trigger-btn {
+    color: white !important;
+    font-size: 14px !important;
+    font-weight: 500 !important;
+    padding: 8px 12px !important;
+    border-radius: 6px !important;
+}
+
+/* --- 2. إعدادات الأجهزة الصغيرة (Mobile & Tablet) --- */
+
+@media (max-width: 768px) {
+    .menu-row-item {
+        padding: 8px 12px !important; /* تقليل المسافات للموبايل */
+    }
+
+    .main-title {
+        font-size: 13px !important; /* تصغير الخط قليلاً */
+    }
+
+    /* إخفاء الوصف في الموبايل إذا أردت قائمة مختصرة */
+    .sub-description {
+        display: block !important; /* اجعلها none إذا أردت إخفاءها */
+        font-size: 11px !important;
+    }
+}
