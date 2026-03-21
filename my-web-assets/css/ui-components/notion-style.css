@@ -1,7 +1,22 @@
 /* Project: POTransfora - The Master Visual Core
-   Version: 1.0 (Comprehensive Identity)
-   Sections: Header, Footer, Popovers, & Artline Transitions
+   Version: 1.1 (Comprehensive Identity + Responsive Header)
+   Sections: Header Container, Links, Popovers, & Artline Transitions
 */
+
+/* ==========================================================================
+   [0] إعدادات الحاوية الكبرى للهيدر (The Grand Container)
+   ========================================================================== */
+.desktop-header-style {
+    position: sticky !important;
+    top: 0;
+    z-index: 1000;
+    width: 100% !important;
+    background: rgba(255, 255, 255, 0.7) !important; /* لون خلفية شفاف */
+    backdrop-filter: blur(12px) !important; /* تأثير الزجاج */
+    -webkit-backdrop-filter: blur(12px) !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2) !important;
+    transition: all 0.4s ease !important;
+}
 
 /* ==========================================================================
    [1] إعدادات الـ Header (روابط التنقل العلوية)
@@ -13,6 +28,7 @@
     transition: all 0.4s ease !important;
     position: relative !important;
     display: inline-block !important;
+    cursor: pointer;
 }
 
 .header-link-style:hover {
@@ -56,7 +72,6 @@
     text-shadow: 0 0 8px rgba(255, 255, 255, 0.5) !important;
 }
 
-/* الخط المتدرج أسفل روابط الفوتر */
 .footer-link-style::after {
     content: '';
     position: absolute;
@@ -89,7 +104,6 @@
 }
 
 .menu-row-item:hover {
-    /* تأثير الزجاج (Glassmorphism) */
     background: rgba(255, 255, 255, 0.8) !important;
     backdrop-filter: blur(10px) !important;
     -webkit-backdrop-filter: blur(10px) !important;
@@ -98,7 +112,7 @@
     transform: translateX(5px) !important;
 }
 
-/* ستايل الأيقونات (Artline Icons / The Logic Gear) */
+/* ستايل الأيقونات */
 .menu-icon-masterpiece {
     flex-shrink: 0 !important;
     transition: all 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) !important;
@@ -106,12 +120,11 @@
 }
 
 .menu-row-item:hover .menu-icon-masterpiece {
-    /* دوران الترس 120 درجة كما في النسخة الأصلية */
     transform: rotate(120deg) scale(1.1) !important;
     filter: grayscale(0%) opacity(1) !important;
 }
 
-/* ستايل النصوص (Typography & Color Logic) */
+/* ستايل النصوص */
 .main-title {
     font-size: 14px !important;
     font-weight: 700 !important;
@@ -120,7 +133,6 @@
     transition: color 0.3s ease !important;
 }
 
-/* تلوين العنوان عند الوقوف ليتماشى مع الهوية */
 .menu-row-item:hover .main-title {
     color: #ff007a !important;
 }
