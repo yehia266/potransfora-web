@@ -1,4 +1,9 @@
-/* --- 1. إعدادات الصف الرئيسي (تم دمج نمط الزجاج مع إعداداتك الأصلية) --- */
+/* Project: POTransfora - Strategic Visual Core
+   File: notion-style.css
+   Includes: Header, Footer, Popovers, & Artline Transitions
+*/
+
+/* --- 1. إعدادات الصف الرئيسي (Original + Glassmorphism) --- */
 .menu-row-item {
     display: flex !important;
     align-items: center !important;
@@ -12,31 +17,27 @@
 }
 
 .menu-row-item:hover {
-    /* دمج تأثير الـ Hover الأصلي مع لمسة Glassmorphism */
     background: rgba(255, 255, 255, 0.8) !important;
     backdrop-filter: blur(10px) !important;
     -webkit-backdrop-filter: blur(10px) !important;
     box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.08) !important;
     border: 1px solid rgba(255, 255, 255, 0.3) !important;
-    transform: translateX(5px) !important; /* الإزاحة الأصلية التي طلبتها */
+    transform: translateX(5px) !important; /* الإزاحة الأصلية */
 }
 
-/* --- 2. ستايل اللوجو (The Logic Gear + Artline Gradient) --- */
+/* --- 2. ستايل اللوجو (Logic Gear + Artline Gradient) --- */
 .menu-icon-masterpiece {
     flex-shrink: 0 !important;
     transition: all 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) !important;
-    /* الحالة الافتراضية: رمادي باهت لتفعيل التباين عند الوقوف */
-    filter: grayscale(100%) opacity(0.7) !important;
+    filter: grayscale(100%) opacity(0.7) !important; /* رمادي افتراضي */
 }
 
 .menu-row-item:hover .menu-icon-masterpiece {
-    /* الحفاظ على الدوران الأصلي (120 درجة) مع تفعيل الألوان */
-    transform: rotate(120deg) scale(1.1) !important;
-    filter: grayscale(0%) opacity(1) !important;
-    /* سيتم سحب التدرج اللوني من الـ SVG ID المعتمد pot-gradient */
+    transform: rotate(120deg) scale(1.1) !important; /* دوران الترس الأصلي */
+    filter: grayscale(0%) opacity(1) !important; /* تفعيل التدرج اللوني */
 }
 
-/* --- 3. النصوص (تم الحفاظ على الخطوط والأوزان بدقة) --- */
+/* --- 3. النصوص (Typography & Color Logic) --- */
 .main-title {
     font-size: 14px !important;
     font-weight: 700 !important;
@@ -45,9 +46,8 @@
     transition: color 0.3s ease !important;
 }
 
-/* تغيير لون العنوان عند الوقوف ليتماشى مع الهوية البصرية */
 .menu-row-item:hover .main-title {
-    color: #ff007a !important; 
+    color: #ff007a !important; /* تلوين العنوان بلون الهوية */
 }
 
 .sub-description {
@@ -55,4 +55,36 @@
     color: #4b5563 !important;
     line-height: 1.5 !important;
     margin-top: 2px !important;
+}
+
+/* --- 4. إعدادات روابط الفوتر (Footer Links Identity) --- */
+.footer-link-style {
+    color: #a0a0a0 !important;
+    text-decoration: none !important;
+    font-weight: 500 !important;
+    transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1) !important;
+    position: relative !important;
+    display: inline-block !important;
+}
+
+.footer-link-style:hover {
+    color: #ffffff !important;
+    transform: translateY(-2px) !important;
+    text-shadow: 0 0 8px rgba(255, 255, 255, 0.5) !important;
+}
+
+.footer-link-style::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -4px;
+    left: 0;
+    background: linear-gradient(90deg, #ff007a, #7e22ce) !important; /* التدرج الموحد */
+    transition: width 0.4s ease;
+    border-radius: 2px;
+}
+
+.footer-link-style:hover::after {
+    width: 100%;
 }
