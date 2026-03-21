@@ -1,63 +1,46 @@
-/* Project: POTransfora - Strategic Visual Core
-   File: notion-style.css
-   Includes: Header, Footer, Popovers, & Artline Transitions
+/* Project: POTransfora - The Master Visual Core
+   Version: 1.0 (Comprehensive Identity)
+   Sections: Header, Footer, Popovers, & Artline Transitions
 */
 
-/* --- 1. إعدادات الصف الرئيسي (Original + Glassmorphism) --- */
-.menu-row-item {
-    display: flex !important;
-    align-items: center !important;
-    padding: 12px 18px !important;
-    border-radius: 14px !important;
-    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1) !important;
-    cursor: pointer !important;
-    background-color: transparent !important;
-    gap: 15px !important;
-    border: 1px solid transparent !important; /* لدعم تأثير الحدود عند الـ Hover */
+/* ==========================================================================
+   [1] إعدادات الـ Header (روابط التنقل العلوية)
+   ========================================================================== */
+.header-link-style {
+    color: #a0a0a0 !important;
+    text-decoration: none !important;
+    font-weight: 500 !important;
+    transition: all 0.4s ease !important;
+    position: relative !important;
+    display: inline-block !important;
 }
 
-.menu-row-item:hover {
-    background: rgba(255, 255, 255, 0.8) !important;
-    backdrop-filter: blur(10px) !important;
-    -webkit-backdrop-filter: blur(10px) !important;
-    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.08) !important;
-    border: 1px solid rgba(255, 255, 255, 0.3) !important;
-    transform: translateX(5px) !important; /* الإزاحة الأصلية */
+.header-link-style:hover {
+    color: #ffffff !important;
+    transform: translateY(-2px) !important;
+    text-shadow: 0 0 8px rgba(255, 255, 255, 0.3) !important;
 }
 
-/* --- 2. ستايل اللوجو (Logic Gear + Artline Gradient) --- */
-.menu-icon-masterpiece {
-    flex-shrink: 0 !important;
-    transition: all 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) !important;
-    filter: grayscale(100%) opacity(0.7) !important; /* رمادي افتراضي */
+/* الخط المتدرج أسفل روابط الهيدر */
+.header-link-style::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -4px;
+    left: 0;
+    background: linear-gradient(90deg, #ff007a, #7e22ce) !important;
+    transition: width 0.4s ease;
+    border-radius: 2px;
 }
 
-.menu-row-item:hover .menu-icon-masterpiece {
-    transform: rotate(120deg) scale(1.1) !important; /* دوران الترس الأصلي */
-    filter: grayscale(0%) opacity(1) !important; /* تفعيل التدرج اللوني */
+.header-link-style:hover::after {
+    width: 100%;
 }
 
-/* --- 3. النصوص (Typography & Color Logic) --- */
-.main-title {
-    font-size: 14px !important;
-    font-weight: 700 !important;
-    color: #111827 !important;
-    margin: 0 !important;
-    transition: color 0.3s ease !important;
-}
-
-.menu-row-item:hover .main-title {
-    color: #ff007a !important; /* تلوين العنوان بلون الهوية */
-}
-
-.sub-description {
-    font-size: 12px !important;
-    color: #4b5563 !important;
-    line-height: 1.5 !important;
-    margin-top: 2px !important;
-}
-
-/* --- 4. إعدادات روابط الفوتر (Footer Links Identity) --- */
+/* ==========================================================================
+   [2] إعدادات الـ Footer (روابط التذييل)
+   ========================================================================== */
 .footer-link-style {
     color: #a0a0a0 !important;
     text-decoration: none !important;
@@ -73,6 +56,7 @@
     text-shadow: 0 0 8px rgba(255, 255, 255, 0.5) !important;
 }
 
+/* الخط المتدرج أسفل روابط الفوتر */
 .footer-link-style::after {
     content: '';
     position: absolute;
@@ -80,11 +64,70 @@
     height: 2px;
     bottom: -4px;
     left: 0;
-    background: linear-gradient(90deg, #ff007a, #7e22ce) !important; /* التدرج الموحد */
+    background: linear-gradient(90deg, #ff007a, #7e22ce) !important;
     transition: width 0.4s ease;
     border-radius: 2px;
 }
 
 .footer-link-style:hover::after {
     width: 100%;
+}
+
+/* ==========================================================================
+   [3] إعدادات الـ Popover والـ Menu (الجسم الرئيسي)
+   ========================================================================== */
+.menu-row-item {
+    display: flex !important;
+    align-items: center !important;
+    padding: 12px 18px !important;
+    border-radius: 14px !important;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1) !important;
+    cursor: pointer !important;
+    background-color: transparent !important;
+    gap: 15px !important;
+    border: 1px solid transparent !important;
+}
+
+.menu-row-item:hover {
+    /* تأثير الزجاج (Glassmorphism) */
+    background: rgba(255, 255, 255, 0.8) !important;
+    backdrop-filter: blur(10px) !important;
+    -webkit-backdrop-filter: blur(10px) !important;
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.08) !important;
+    border: 1px solid rgba(255, 255, 255, 0.3) !important;
+    transform: translateX(5px) !important;
+}
+
+/* ستايل الأيقونات (Artline Icons / The Logic Gear) */
+.menu-icon-masterpiece {
+    flex-shrink: 0 !important;
+    transition: all 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) !important;
+    filter: grayscale(100%) opacity(0.7) !important;
+}
+
+.menu-row-item:hover .menu-icon-masterpiece {
+    /* دوران الترس 120 درجة كما في النسخة الأصلية */
+    transform: rotate(120deg) scale(1.1) !important;
+    filter: grayscale(0%) opacity(1) !important;
+}
+
+/* ستايل النصوص (Typography & Color Logic) */
+.main-title {
+    font-size: 14px !important;
+    font-weight: 700 !important;
+    color: #111827 !important;
+    margin: 0 !important;
+    transition: color 0.3s ease !important;
+}
+
+/* تلوين العنوان عند الوقوف ليتماشى مع الهوية */
+.menu-row-item:hover .main-title {
+    color: #ff007a !important;
+}
+
+.sub-description {
+    font-size: 12px !important;
+    color: #4b5563 !important;
+    line-height: 1.5 !important;
+    margin-top: 2px !important;
 }
