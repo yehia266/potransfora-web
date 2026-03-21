@@ -1,20 +1,40 @@
 /* --- 1. إعدادات الكمبيوتر (Desktop Styles) --- */
 
-/* الصف بالكامل (اللوجو + النصوص) */
+/* الصف بالكامل (الحاوية التي تضم اللوجو والنصوص) */
 .menu-row-item {
     display: flex !important;
     align-items: center !important;
     padding: 10px 16px !important;
-    border-radius: 10px !important; /* الـ 10px اللي اخترناها */
-    transition: all 0.3s ease-in-out !important; /* النعومة اللي ضبطناها */
+    border-radius: 10px !important;
+    transition: all 0.3s ease-in-out !important;
     cursor: pointer !important;
     background-color: transparent !important;
+    gap: 12px !important; /* مسافة ثابتة بين الأيقونة والنصوص */
 }
 
-/* تأثير اللمعة عند مرور الماوس */
+/* تأثير اللمعة عند مرور الماوس على الصف */
 .menu-row-item:hover {
     background-color: #f3f4f6 !important; /* رمادي فاتح جداً */
 }
+
+/* --- 2. تنسيق أيقونات Lucide (Artline Style) --- */
+
+.menu-icon-style svg {
+    width: 20px !important;
+    height: 20px !important;
+    stroke-width: 1.5 !important; /* سر الأناقة والخطوط الرفيعة */
+    color: #4b5563 !important; 
+    transition: all 0.3s ease !important;
+    fill: none !important; /* التأكد أنها Outline فقط */
+}
+
+/* حركة الأيقونة وتغيير لونها عند الهوفر على الصف */
+.menu-row-item:hover .menu-icon-style svg {
+    transform: translateY(-2px); /* حركة خفيفة للأعلى */
+    color: #3b82f6 !important; /* تتحول للأزرق الهادئ */
+}
+
+/* --- 3. تنسيق النصوص (Typography) --- */
 
 /* العنوان الرئيسي (مثلاً: Features) */
 .main-title {
@@ -24,14 +44,14 @@
     margin: 0 !important;
 }
 
-/* الوصف الفرعي (Exploration...) */
+/* الوصف الفرعي */
 .sub-description {
     font-size: 12px !important;
     color: #6b7280 !important;
     line-height: 1.4 !important;
 }
 
-/* زر التريجر (Product) */
+/* زر التريجر الرئيسي (Product) */
 .nav-trigger-btn {
     color: white !important;
     font-size: 14px !important;
@@ -40,20 +60,25 @@
     border-radius: 6px !important;
 }
 
-/* --- 2. إعدادات الأجهزة الصغيرة (Mobile & Tablet) --- */
+/* --- 4. إعدادات الأجهزة الصغيرة (Responsive Design) --- */
 
 @media (max-width: 768px) {
     .menu-row-item {
-        padding: 8px 12px !important; /* تقليل المسافات للموبايل */
+        padding: 8px 12px !important;
+        gap: 10px !important;
     }
 
     .main-title {
-        font-size: 13px !important; /* تصغير الخط قليلاً */
+        font-size: 13px !important;
     }
 
-    /* إخفاء الوصف في الموبايل إذا أردت قائمة مختصرة */
     .sub-description {
-        display: block !important; /* اجعلها none إذا أردت إخفاءها */
+        display: block !important; 
         font-size: 11px !important;
+    }
+
+    .menu-icon-style svg {
+        width: 18px !important; /* تصغير الأيقونة قليلاً للموبايل */
+        height: 18px !important;
     }
 }
