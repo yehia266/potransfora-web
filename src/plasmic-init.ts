@@ -4,8 +4,9 @@ import EyeModal from "./components/EyeModal";
 export const PLASMIC = initPlasmicLoader({
   projects: [
     {
-      id: "k7tGuJznBEQcX8ySStbZUu",
-      token: "YESOdQOKFw7rt7VUwVMX4y27akAxU5iNWNdFdir3uzOKo5BqJXCtseaLJ2mqZTZ1oyPnpPIWDX9qJYuizA",
+      id: "gYhxLXJA7SYeXHXvvhkFsD",
+      token: "BzpljYCTgzeh6iApjItozM7sSKWJ7B7qw9aU2b0aodfMyyXgKIGrgPdoD7qNw0WRhqqj83JtG5crEsJWJ1Hvw",
+     
     },
   ],
   preview: true,
