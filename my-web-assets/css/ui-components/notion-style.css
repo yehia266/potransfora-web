@@ -1,6 +1,122 @@
-<style>
-  .desktop-header-style { 
-     background: red !important; 
-     border: 5px solid yellow !important;
-  }
-</style>
+/* Project: POTransfora - The Master Visual Core
+   Theme: Notion Minimalist + Eye Identity
+   Last Update: 2026-03-23
+*/
+
+/* ==========================================================================
+   [0] إعدادات الحاوية الكبرى للهيدر (Notion Glass Design)
+   ========================================================================== */
+.desktop-header-style {
+    position: sticky !important;
+    top: 0;
+    z-index: 1000;
+    width: 100% !important;
+    background: rgba(255, 255, 255, 0.8) !important; /* خلفية مودال العين */
+    backdrop-filter: blur(12px) !important;
+    -webkit-backdrop-filter: blur(12px) !important;
+    border-bottom: 1px solid #e0e0e0 !important; /* نفس بوردر المودال */
+    transition: all 0.4s ease !important;
+}
+
+/* ==========================================================================
+   [1] إعدادات الـ Header (روابط الهوية - #37352f)
+   ========================================================================== */
+.header-link-style {
+    color: #666666 !important; /* لون الوصف في المودال */
+    text-decoration: none !important;
+    font-weight: 500 !important;
+    font-size: 15px !important; /* نفس سايز المودال */
+    transition: all 0.3s ease !important;
+    position: relative !important;
+    display: inline-block !important;
+    cursor: pointer;
+}
+
+.header-link-style:hover {
+    color: #37352f !important; /* اللون الأساسي للعين والعناوين */
+    transform: translateY(-1px) !important;
+}
+
+/* الخط المتدرج (هوية Transfora) أسفل روابط الهيدر */
+.header-link-style::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -4px;
+    left: 0;
+    background: #37352f !important; /* توحيد اللون مع هوية العين */
+    transition: width 0.3s ease;
+    border-radius: 2px;
+}
+
+.header-link-style:hover::after {
+    width: 100%;
+}
+
+/* ==========================================================================
+   [2] إعدادات الـ Popover والـ Menu (Notion-Card Style)
+   ========================================================================== */
+.menu-row-item {
+    display: flex !important;
+    align-items: center !important;
+    padding: 12px 20px !important;
+    border-radius: 12px !important; /* نفس راديوس المودال */
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+    cursor: pointer !important;
+    background-color: transparent !important;
+    gap: 16px !important;
+    border: 1px solid transparent !important;
+}
+
+.menu-row-item:hover {
+    background: #f0f0f0 !important; /* لون الـ TopBar في المودال */
+    border: 1px solid #e0e0e0 !important;
+    transform: translateX(4px) !important;
+}
+
+/* ستايل الأيقونات (Eye Tracking Style) */
+.menu-icon-masterpiece {
+    flex-shrink: 0 !important;
+    transition: all 0.5s ease !important;
+    border: 1.5px solid #37352f !important; /* نفس بوردر العين */
+    border-radius: 50%;
+    padding: 4px;
+}
+
+.menu-row-item:hover .menu-icon-masterpiece {
+    transform: scale(1.1) rotate(15deg) !important;
+    background: #37352f !important;
+    color: white !important;
+}
+
+/* ستايل النصوص (Notion Typography) */
+.main-title {
+    font-size: 15px !important;
+    font-weight: 700 !important;
+    color: #37352f !important; /* لون عنوان المودال */
+    margin: 0 !important;
+}
+
+.sub-description {
+    font-size: 13px !important;
+    color: #666 !important; /* لون وصف المودال */
+    line-height: 1.5 !important;
+    margin-top: 2px !important;
+}
+
+/* ==========================================================================
+   [3] إعدادات زر الـ Continue (The Action Button)
+   ========================================================================== */
+.notion-action-button {
+    background-color: #37352f !important;
+    color: #ffffff !important;
+    border-radius: 8px !important;
+    padding: 10px 20px !important;
+    font-weight: 600 !important;
+    transition: opacity 0.3s ease !important;
+}
+
+.notion-action-button:hover {
+    opacity: 0.9 !important;
+}
