@@ -1,0 +1,42 @@
+<div class="pt-menu-column" style="display: flex; flex-direction: column; gap: 8px; width: 450px;">
+  
+  <div class="pt-glass-item" onclick="location.href='/talxtrack'">
+    <div class="pt-icon-stack">
+      <div class="pt-glass-base pt-grad-pink"></div>
+      <svg viewBox="0 0 24 24" class="pt-3d-icon"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"/></svg>
+    </div>
+    <div class="pt-text-box">
+      <b class="pt-title">TalXtrack Form</b>
+      <span class="pt-desc">Premium data capture and smart talent tracking for Enterprise security.</span>
+    </div>
+  </div>
+
+  <div class="pt-glass-item" onclick="location.href='/workflow'">
+    <div class="pt-icon-stack">
+      <div class="pt-glass-base pt-grad-orange"></div>
+      <svg viewBox="0 0 24 24" class="pt-3d-icon"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-5.5-2.5l7.5-7.5-7.5-7.5 1.5-1.5 9 9-9 9z"/></svg>
+    </div>
+    <div class="pt-text-box">
+      <b class="pt-title">Workflow Engine</b>
+      <span class="pt-desc">Automate complex processes with our sovereign nodal logic and real-time execution.</span>
+    </div>
+  </div>
+
+</div>
+
+<style>
+  .pt-glass-item {
+    display: flex; align-items: flex-start; gap: 16px; padding: 14px 18px;
+    border-radius: 12px; cursor: pointer; transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  .pt-glass-item:hover { background: rgba(55, 53, 47, 0.05); transform: translateX(4px); }
+  .pt-icon-stack { position: relative; width: 44px; height: 44px; flex-shrink: 0; margin-top: 2px; }
+  .pt-glass-base { position: absolute; width: 100%; height: 100%; border-radius: 10px; opacity: 0.12; transition: opacity 0.3s ease; }
+  .pt-grad-pink { background: linear-gradient(135deg, #ff00c8, #7000ff); }
+  .pt-grad-orange { background: linear-gradient(135deg, #ff8800, #ffcc00); }
+  .pt-glass-item:hover .pt-glass-base { opacity: 0.22; }
+  .pt-3d-icon { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 22px; height: 22px; fill: #37352f; }
+  .pt-text-box { display: flex; flex-direction: column; gap: 3px; }
+  .pt-title { font-size: 15.5px; color: #1a1a1a; font-weight: 600; }
+  .pt-desc { font-size: 13px; color: #6b6b6b; line-height: 1.5; }
+</style>
